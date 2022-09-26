@@ -1,0 +1,3786 @@
+{
+	"id": 0,
+	"name": "typed-data-parser",
+	"kind": 1,
+	"kindString": "Project",
+	"flags": {},
+	"originalName": "",
+	"children": [
+		{
+			"id": 48,
+			"name": "DataParserBase",
+			"kind": 128,
+			"kindString": "Class",
+			"flags": {
+				"isAbstract": true
+			},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "define a parser"
+					}
+				],
+				"blockTags": [
+					{
+						"tag": "@example",
+						"content": [
+							{
+								"kind": "code",
+								"text": "```ts\n// define a parser which parser A to ATarget\r\nclass AParser extends DataParserBase<AParserMap> { }\n```"
+							}
+						]
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 51,
+					"name": "constructor",
+					"kind": 512,
+					"kindString": "Constructor",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 52,
+							"name": "new DataParserBase",
+							"kind": 16384,
+							"kindString": "Constructor signature",
+							"flags": {},
+							"typeParameter": [
+								{
+									"id": 53,
+									"name": "parserMap",
+									"kind": 131072,
+									"kindString": "Type parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"id": 8,
+										"typeArguments": [
+											{
+												"type": "reference",
+												"name": "Object",
+												"qualifiedName": "Object",
+												"package": "typescript"
+											},
+											{
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "Record",
+												"qualifiedName": "Record",
+												"package": "typescript"
+											},
+											{
+												"type": "intrinsic",
+												"name": "unknown"
+											},
+											{
+												"type": "reference",
+												"id": 48,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "DataParserBase"
+											}
+										],
+										"name": "ParserMap"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 48,
+								"typeArguments": [
+									{
+										"type": "reference",
+										"id": 53,
+										"name": "parserMap"
+									}
+								],
+								"name": "DataParserBase"
+							}
+						}
+					]
+				},
+				{
+					"id": 49,
+					"name": "gettersCache",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isPrivate": true,
+						"isStatic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 51,
+							"character": 19
+						}
+					],
+					"type": {
+						"type": "reference",
+						"typeArguments": [
+							{
+								"type": "reference",
+								"id": 48,
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "DataParserBase"
+							},
+							{
+								"type": "intrinsic",
+								"name": "any"
+							}
+						],
+						"name": "Map",
+						"qualifiedName": "Map",
+						"package": "typescript"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 50,
+					"name": "settersCache",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isPrivate": true,
+						"isStatic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 52,
+							"character": 19
+						}
+					],
+					"type": {
+						"type": "reference",
+						"typeArguments": [
+							{
+								"type": "reference",
+								"id": 48,
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "DataParserBase"
+							},
+							{
+								"type": "intrinsic",
+								"name": "any"
+							}
+						],
+						"name": "Map",
+						"qualifiedName": "Map",
+						"package": "typescript"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 54,
+					"name": "propertyGetters",
+					"kind": 262144,
+					"kindString": "Accessor",
+					"flags": {
+						"isPublic": true,
+						"isAbstract": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 54,
+							"character": 24
+						}
+					],
+					"getSignature": {
+						"id": 55,
+						"name": "propertyGetters",
+						"kind": 524288,
+						"kindString": "Get signature",
+						"flags": {},
+						"type": {
+							"type": "mapped",
+							"parameter": "P",
+							"parameterType": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "intrinsic",
+										"name": "number"
+									},
+									{
+										"type": "intrinsic",
+										"name": "symbol"
+									}
+								]
+							},
+							"templateType": {
+								"type": "reflection",
+								"declaration": {
+									"id": 56,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "index.ts",
+											"line": 19,
+											"character": 59
+										}
+									],
+									"signatures": [
+										{
+											"id": 57,
+											"name": "__type",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 58,
+													"name": "value",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "indexedAccess",
+														"indexType": {
+															"type": "literal",
+															"value": "oriObjectType"
+														},
+														"objectType": {
+															"type": "reference",
+															"id": 53,
+															"name": "parserMap"
+														}
+													}
+												},
+												{
+													"id": 59,
+													"name": "propertyName",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "indexedAccess",
+												"indexType": {
+													"type": "reference",
+													"name": "P"
+												},
+												"objectType": {
+													"type": "indexedAccess",
+													"indexType": {
+														"type": "literal",
+														"value": "targetDataType"
+													},
+													"objectType": {
+														"type": "reference",
+														"id": 53,
+														"name": "parserMap"
+													}
+												}
+											}
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				{
+					"id": 68,
+					"name": "propertySetters",
+					"kind": 262144,
+					"kindString": "Accessor",
+					"flags": {
+						"isPublic": true,
+						"isAbstract": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 65,
+							"character": 24
+						}
+					],
+					"getSignature": {
+						"id": 69,
+						"name": "propertySetters",
+						"kind": 524288,
+						"kindString": "Get signature",
+						"flags": {},
+						"type": {
+							"type": "mapped",
+							"parameter": "P",
+							"parameterType": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "intrinsic",
+										"name": "number"
+									},
+									{
+										"type": "intrinsic",
+										"name": "symbol"
+									}
+								]
+							},
+							"templateType": {
+								"type": "reflection",
+								"declaration": {
+									"id": 70,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "index.ts",
+											"line": 20,
+											"character": 59
+										}
+									],
+									"signatures": [
+										{
+											"id": 71,
+											"name": "__type",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 72,
+													"name": "value",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "indexedAccess",
+														"indexType": {
+															"type": "literal",
+															"value": "oriObjectType"
+														},
+														"objectType": {
+															"type": "reference",
+															"id": 53,
+															"name": "parserMap"
+														}
+													}
+												},
+												{
+													"id": 73,
+													"name": "targetValue",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "indexedAccess",
+														"indexType": {
+															"type": "reference",
+															"name": "P"
+														},
+														"objectType": {
+															"type": "indexedAccess",
+															"indexType": {
+																"type": "literal",
+																"value": "targetDataType"
+															},
+															"objectType": {
+																"type": "reference",
+																"id": 53,
+																"name": "parserMap"
+															}
+														}
+													}
+												},
+												{
+													"id": 74,
+													"name": "propertyName",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {
+														"isOptional": true
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												},
+												{
+													"id": 75,
+													"name": "exData",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {
+														"isOptional": true
+													},
+													"type": {
+														"type": "indexedAccess",
+														"indexType": {
+															"type": "literal",
+															"value": "exDataType"
+														},
+														"objectType": {
+															"type": "reference",
+															"id": 53,
+															"name": "parserMap"
+														}
+													}
+												},
+												{
+													"id": 76,
+													"name": "callback",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {
+														"isOptional": true
+													},
+													"type": {
+														"type": "reflection",
+														"declaration": {
+															"id": 77,
+															"name": "__type",
+															"kind": 65536,
+															"kindString": "Type literal",
+															"flags": {},
+															"sources": [
+																{
+																	"fileName": "index.ts",
+																	"line": 20,
+																	"character": 190
+																}
+															],
+															"signatures": [
+																{
+																	"id": 78,
+																	"name": "__type",
+																	"kind": 4096,
+																	"kindString": "Call signature",
+																	"flags": {},
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "void"
+																	}
+																}
+															]
+														}
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									]
+								}
+							}
+						}
+					}
+				},
+				{
+					"id": 92,
+					"name": "get",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 81,
+							"character": 11
+						}
+					],
+					"signatures": [
+						{
+							"id": 93,
+							"name": "get",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "get property value"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@returns",
+										"content": [
+											{
+												"kind": "text",
+												"text": "property value"
+											}
+										]
+									}
+								]
+							},
+							"typeParameter": [
+								{
+									"id": 94,
+									"name": "PropertyNames",
+									"kind": 131072,
+									"kindString": "Type parameter",
+									"flags": {},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "reference",
+											"typeArguments": [
+												{
+													"type": "typeOperator",
+													"operator": "keyof",
+													"target": {
+														"type": "indexedAccess",
+														"indexType": {
+															"type": "literal",
+															"value": "targetDataType"
+														},
+														"objectType": {
+															"type": "reference",
+															"id": 53,
+															"name": "parserMap"
+														}
+													}
+												},
+												{
+													"type": "intrinsic",
+													"name": "string"
+												}
+											],
+											"name": "Extract",
+											"qualifiedName": "Extract",
+											"package": "typescript"
+										}
+									}
+								}
+							],
+							"parameters": [
+								{
+									"id": 95,
+									"name": "value",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "original data"
+											}
+										]
+									},
+									"type": {
+										"type": "indexedAccess",
+										"indexType": {
+											"type": "literal",
+											"value": "oriObjectType"
+										},
+										"objectType": {
+											"type": "reference",
+											"id": 53,
+											"name": "parserMap"
+										}
+									}
+								},
+								{
+									"id": 96,
+									"name": "propertyNames",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isRest": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "property names,can be null"
+											}
+										]
+									},
+									"type": {
+										"type": "reference",
+										"id": 94,
+										"name": "PropertyNames"
+									}
+								}
+							],
+							"type": {
+								"type": "conditional",
+								"checkType": {
+									"type": "reference",
+									"id": 94,
+									"name": "PropertyNames"
+								},
+								"extendsType": {
+									"type": "tuple"
+								},
+								"trueType": {
+									"type": "indexedAccess",
+									"indexType": {
+										"type": "literal",
+										"value": "targetDataType"
+									},
+									"objectType": {
+										"type": "reference",
+										"id": 53,
+										"name": "parserMap"
+									}
+								},
+								"falseType": {
+									"type": "reference",
+									"typeArguments": [
+										{
+											"type": "indexedAccess",
+											"indexType": {
+												"type": "literal",
+												"value": "targetDataType"
+											},
+											"objectType": {
+												"type": "reference",
+												"id": 53,
+												"name": "parserMap"
+											}
+										},
+										{
+											"type": "indexedAccess",
+											"indexType": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"objectType": {
+												"type": "reference",
+												"id": 94,
+												"name": "PropertyNames"
+											}
+										}
+									],
+									"name": "Pick",
+									"qualifiedName": "Pick",
+									"package": "typescript"
+								}
+							}
+						}
+					]
+				},
+				{
+					"id": 60,
+					"name": "initGetters",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isProtected": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 55,
+							"character": 14
+						}
+					],
+					"signatures": [
+						{
+							"id": 61,
+							"name": "initGetters",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"typeParameter": [
+								{
+									"id": 66,
+									"name": "T",
+									"kind": 131072,
+									"kindString": "Type parameter",
+									"flags": {},
+									"type": {
+										"type": "mapped",
+										"parameter": "P",
+										"parameterType": {
+											"type": "union",
+											"types": [
+												{
+													"type": "intrinsic",
+													"name": "string"
+												},
+												{
+													"type": "intrinsic",
+													"name": "number"
+												},
+												{
+													"type": "intrinsic",
+													"name": "symbol"
+												}
+											]
+										},
+										"templateType": {
+											"type": "reflection",
+											"declaration": {
+												"id": 62,
+												"name": "__type",
+												"kind": 65536,
+												"kindString": "Type literal",
+												"flags": {},
+												"sources": [
+													{
+														"fileName": "index.ts",
+														"line": 19,
+														"character": 59
+													}
+												],
+												"signatures": [
+													{
+														"id": 63,
+														"name": "__type",
+														"kind": 4096,
+														"kindString": "Call signature",
+														"flags": {},
+														"parameters": [
+															{
+																"id": 64,
+																"name": "value",
+																"kind": 32768,
+																"kindString": "Parameter",
+																"flags": {},
+																"type": {
+																	"type": "indexedAccess",
+																	"indexType": {
+																		"type": "literal",
+																		"value": "oriObjectType"
+																	},
+																	"objectType": {
+																		"type": "reference",
+																		"id": 53,
+																		"name": "parserMap"
+																	}
+																}
+															},
+															{
+																"id": 65,
+																"name": "propertyName",
+																"kind": 32768,
+																"kindString": "Parameter",
+																"flags": {},
+																"type": {
+																	"type": "intrinsic",
+																	"name": "string"
+																}
+															}
+														],
+														"type": {
+															"type": "indexedAccess",
+															"indexType": {
+																"type": "reference",
+																"name": "P"
+															},
+															"objectType": {
+																"type": "indexedAccess",
+																"indexType": {
+																	"type": "literal",
+																	"value": "targetDataType"
+																},
+																"objectType": {
+																	"type": "reference",
+																	"id": 53,
+																	"name": "parserMap"
+																}
+															}
+														}
+													}
+												]
+											}
+										}
+									}
+								}
+							],
+							"parameters": [
+								{
+									"id": 67,
+									"name": "getterDescription",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"id": 66,
+										"name": "T"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 66,
+								"name": "T"
+							}
+						}
+					]
+				},
+				{
+					"id": 79,
+					"name": "initSetters",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isProtected": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 66,
+							"character": 14
+						}
+					],
+					"signatures": [
+						{
+							"id": 80,
+							"name": "initSetters",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"typeParameter": [
+								{
+									"id": 90,
+									"name": "T",
+									"kind": 131072,
+									"kindString": "Type parameter",
+									"flags": {},
+									"type": {
+										"type": "mapped",
+										"parameter": "P",
+										"parameterType": {
+											"type": "union",
+											"types": [
+												{
+													"type": "intrinsic",
+													"name": "string"
+												},
+												{
+													"type": "intrinsic",
+													"name": "number"
+												},
+												{
+													"type": "intrinsic",
+													"name": "symbol"
+												}
+											]
+										},
+										"templateType": {
+											"type": "reflection",
+											"declaration": {
+												"id": 81,
+												"name": "__type",
+												"kind": 65536,
+												"kindString": "Type literal",
+												"flags": {},
+												"sources": [
+													{
+														"fileName": "index.ts",
+														"line": 20,
+														"character": 59
+													}
+												],
+												"signatures": [
+													{
+														"id": 82,
+														"name": "__type",
+														"kind": 4096,
+														"kindString": "Call signature",
+														"flags": {},
+														"parameters": [
+															{
+																"id": 83,
+																"name": "value",
+																"kind": 32768,
+																"kindString": "Parameter",
+																"flags": {},
+																"type": {
+																	"type": "indexedAccess",
+																	"indexType": {
+																		"type": "literal",
+																		"value": "oriObjectType"
+																	},
+																	"objectType": {
+																		"type": "reference",
+																		"id": 53,
+																		"name": "parserMap"
+																	}
+																}
+															},
+															{
+																"id": 84,
+																"name": "targetValue",
+																"kind": 32768,
+																"kindString": "Parameter",
+																"flags": {},
+																"type": {
+																	"type": "indexedAccess",
+																	"indexType": {
+																		"type": "reference",
+																		"name": "P"
+																	},
+																	"objectType": {
+																		"type": "indexedAccess",
+																		"indexType": {
+																			"type": "literal",
+																			"value": "targetDataType"
+																		},
+																		"objectType": {
+																			"type": "reference",
+																			"id": 53,
+																			"name": "parserMap"
+																		}
+																	}
+																}
+															},
+															{
+																"id": 85,
+																"name": "propertyName",
+																"kind": 32768,
+																"kindString": "Parameter",
+																"flags": {
+																	"isOptional": true
+																},
+																"type": {
+																	"type": "intrinsic",
+																	"name": "string"
+																}
+															},
+															{
+																"id": 86,
+																"name": "exData",
+																"kind": 32768,
+																"kindString": "Parameter",
+																"flags": {
+																	"isOptional": true
+																},
+																"type": {
+																	"type": "indexedAccess",
+																	"indexType": {
+																		"type": "literal",
+																		"value": "exDataType"
+																	},
+																	"objectType": {
+																		"type": "reference",
+																		"id": 53,
+																		"name": "parserMap"
+																	}
+																}
+															},
+															{
+																"id": 87,
+																"name": "callback",
+																"kind": 32768,
+																"kindString": "Parameter",
+																"flags": {
+																	"isOptional": true
+																},
+																"type": {
+																	"type": "reflection",
+																	"declaration": {
+																		"id": 88,
+																		"name": "__type",
+																		"kind": 65536,
+																		"kindString": "Type literal",
+																		"flags": {},
+																		"sources": [
+																			{
+																				"fileName": "index.ts",
+																				"line": 20,
+																				"character": 190
+																			}
+																		],
+																		"signatures": [
+																			{
+																				"id": 89,
+																				"name": "__type",
+																				"kind": 4096,
+																				"kindString": "Call signature",
+																				"flags": {},
+																				"type": {
+																					"type": "intrinsic",
+																					"name": "void"
+																				}
+																			}
+																		]
+																	}
+																}
+															}
+														],
+														"type": {
+															"type": "intrinsic",
+															"name": "void"
+														}
+													}
+												]
+											}
+										}
+									}
+								}
+							],
+							"parameters": [
+								{
+									"id": 91,
+									"name": "setterDescription",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"id": 90,
+										"name": "T"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 90,
+								"name": "T"
+							}
+						}
+					]
+				},
+				{
+					"id": 97,
+					"name": "set",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 119,
+							"character": 11
+						}
+					],
+					"signatures": [
+						{
+							"id": 98,
+							"name": "set",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "set property value"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 99,
+									"name": "value",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "original data"
+											}
+										]
+									},
+									"type": {
+										"type": "indexedAccess",
+										"indexType": {
+											"type": "literal",
+											"value": "oriObjectType"
+										},
+										"objectType": {
+											"type": "reference",
+											"id": 53,
+											"name": "parserMap"
+										}
+									}
+								},
+								{
+									"id": 100,
+									"name": "partialTargetData",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "propertyName-propertyValue key pairs"
+											}
+										]
+									},
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "indexedAccess",
+												"indexType": {
+													"type": "literal",
+													"value": "targetDataType"
+												},
+												"objectType": {
+													"type": "reference",
+													"id": 53,
+													"name": "parserMap"
+												}
+											}
+										],
+										"name": "Partial",
+										"qualifiedName": "Partial",
+										"package": "typescript"
+									}
+								},
+								{
+									"id": 101,
+									"name": "extras",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "extras data,which is helpful when we want to do something else after the property is been set"
+											}
+										]
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 102,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"children": [
+												{
+													"id": 104,
+													"name": "callback",
+													"kind": 1024,
+													"kindString": "Property",
+													"flags": {
+														"isOptional": true
+													},
+													"sources": [
+														{
+															"fileName": "index.ts",
+															"line": 119,
+															"character": 152
+														}
+													],
+													"type": {
+														"type": "reflection",
+														"declaration": {
+															"id": 105,
+															"name": "__type",
+															"kind": 65536,
+															"kindString": "Type literal",
+															"flags": {},
+															"sources": [
+																{
+																	"fileName": "index.ts",
+																	"line": 119,
+																	"character": 163
+																}
+															],
+															"signatures": [
+																{
+																	"id": 106,
+																	"name": "__type",
+																	"kind": 4096,
+																	"kindString": "Call signature",
+																	"flags": {},
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "void"
+																	}
+																}
+															]
+														}
+													}
+												},
+												{
+													"id": 103,
+													"name": "exData",
+													"kind": 1024,
+													"kindString": "Property",
+													"flags": {
+														"isOptional": true
+													},
+													"sources": [
+														{
+															"fileName": "index.ts",
+															"line": 119,
+															"character": 118
+														}
+													],
+													"type": {
+														"type": "indexedAccess",
+														"indexType": {
+															"type": "literal",
+															"value": "exDataType"
+														},
+														"objectType": {
+															"type": "reference",
+															"id": 53,
+															"name": "parserMap"
+														}
+													}
+												}
+											],
+											"groups": [
+												{
+													"title": "Properties",
+													"children": [
+														104,
+														103
+													]
+												}
+											],
+											"sources": [
+												{
+													"fileName": "index.ts",
+													"line": 119,
+													"character": 116
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Constructors",
+					"children": [
+						51
+					]
+				},
+				{
+					"title": "Properties",
+					"children": [
+						49,
+						50
+					]
+				},
+				{
+					"title": "Accessors",
+					"children": [
+						54,
+						68
+					]
+				},
+				{
+					"title": "Methods",
+					"children": [
+						92,
+						60,
+						79,
+						97
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "index.ts",
+					"line": 50,
+					"character": 22
+				}
+			],
+			"typeParameters": [
+				{
+					"id": 107,
+					"name": "parserMap",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {},
+					"type": {
+						"type": "reference",
+						"id": 8,
+						"name": "ParserMap"
+					}
+				}
+			]
+		},
+		{
+			"id": 120,
+			"name": "ParserHelperBase",
+			"kind": 128,
+			"kindString": "Class",
+			"flags": {
+				"isAbstract": true
+			},
+			"children": [
+				{
+					"id": 125,
+					"name": "constructor",
+					"kind": 512,
+					"kindString": "Constructor",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 191,
+							"character": 4
+						}
+					],
+					"signatures": [
+						{
+							"id": 126,
+							"name": "new ParserHelperBase",
+							"kind": 16384,
+							"kindString": "Constructor signature",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "Creates an instance of parser helper base."
+									}
+								]
+							},
+							"typeParameter": [
+								{
+									"id": 127,
+									"name": "Maps",
+									"kind": 131072,
+									"kindString": "Type parameter",
+									"flags": {},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "reference",
+											"id": 8,
+											"typeArguments": [
+												{
+													"type": "reference",
+													"name": "Object",
+													"qualifiedName": "Object",
+													"package": "typescript"
+												},
+												{
+													"type": "reference",
+													"typeArguments": [
+														{
+															"type": "intrinsic",
+															"name": "string"
+														},
+														{
+															"type": "intrinsic",
+															"name": "any"
+														}
+													],
+													"name": "Record",
+													"qualifiedName": "Record",
+													"package": "typescript"
+												},
+												{
+													"type": "intrinsic",
+													"name": "unknown"
+												},
+												{
+													"type": "reference",
+													"id": 48,
+													"typeArguments": [
+														{
+															"type": "intrinsic",
+															"name": "any"
+														}
+													],
+													"name": "DataParserBase"
+												}
+											],
+											"name": "ParserMap"
+										}
+									}
+								}
+							],
+							"parameters": [
+								{
+									"id": 128,
+									"name": "maps",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "reference",
+											"id": 108,
+											"typeArguments": [
+												{
+													"type": "indexedAccess",
+													"indexType": {
+														"type": "intrinsic",
+														"name": "number"
+													},
+													"objectType": {
+														"type": "reference",
+														"id": 127,
+														"name": "Maps"
+													}
+												}
+											],
+											"name": "MapInstanceType"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 120,
+								"typeArguments": [
+									{
+										"type": "reference",
+										"id": 127,
+										"name": "Maps"
+									}
+								],
+								"name": "ParserHelperBase"
+							}
+						}
+					]
+				},
+				{
+					"id": 129,
+					"name": "parserCreated",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isProtected": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "the parser created,use to cache"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 184,
+							"character": 14
+						}
+					],
+					"type": {
+						"type": "reference",
+						"typeArguments": [
+							{
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "reference",
+										"id": 48,
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "any"
+											}
+										],
+										"name": "DataParserBase"
+									}
+								],
+								"name": "ConstructorType"
+							},
+							{
+								"type": "reference",
+								"id": 48,
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "DataParserBase"
+							}
+						],
+						"name": "Map",
+						"qualifiedName": "Map",
+						"package": "typescript"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 121,
+					"name": "parserMaps",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isProtected": true,
+						"isStatic": true
+					},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "parser map that is registed to the helper"
+							}
+						]
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 180,
+							"character": 21
+						}
+					],
+					"type": {
+						"type": "reference",
+						"typeArguments": [
+							{
+								"type": "reference",
+								"name": "Object",
+								"qualifiedName": "Object",
+								"package": "typescript"
+							},
+							{
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "reference",
+												"id": 48,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "DataParserBase"
+											}
+										],
+										"name": "ConstructorType"
+									}
+								],
+								"name": "Set",
+								"qualifiedName": "Set",
+								"package": "typescript"
+							}
+						],
+						"name": "Map",
+						"qualifiedName": "Map",
+						"package": "typescript"
+					},
+					"defaultValue": "..."
+				},
+				{
+					"id": 136,
+					"name": "get",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 265,
+							"character": 11
+						}
+					],
+					"signatures": [
+						{
+							"id": 137,
+							"name": "get",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "get data from parser"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@returns",
+										"content": [
+											{
+												"kind": "text",
+												"text": "data matched propertyNames"
+											}
+										]
+									}
+								]
+							},
+							"typeParameter": [
+								{
+									"id": 138,
+									"name": "T",
+									"kind": 131072,
+									"kindString": "Type parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "Object",
+										"qualifiedName": "Object",
+										"package": "typescript"
+									}
+								},
+								{
+									"id": 139,
+									"name": "U",
+									"kind": 131072,
+									"kindString": "Type parameter",
+									"flags": {},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "reference",
+											"typeArguments": [
+												{
+													"type": "typeOperator",
+													"operator": "keyof",
+													"target": {
+														"type": "reference",
+														"typeArguments": [
+															{
+																"type": "reference",
+																"id": 127,
+																"name": "Maps"
+															},
+															{
+																"type": "reference",
+																"id": 138,
+																"name": "T"
+															}
+														],
+														"name": "TargetDataType"
+													}
+												},
+												{
+													"type": "intrinsic",
+													"name": "string"
+												}
+											],
+											"name": "Extract",
+											"qualifiedName": "Extract",
+											"package": "typescript"
+										}
+									}
+								}
+							],
+							"parameters": [
+								{
+									"id": 140,
+									"name": "value",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "input value"
+											}
+										]
+									},
+									"type": {
+										"type": "reference",
+										"id": 138,
+										"name": "T"
+									}
+								},
+								{
+									"id": 141,
+									"name": "propertyNames",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isRest": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "property names,can be null"
+											}
+										]
+									},
+									"type": {
+										"type": "reference",
+										"id": 139,
+										"name": "U"
+									}
+								}
+							],
+							"type": {
+								"type": "conditional",
+								"checkType": {
+									"type": "reference",
+									"id": 139,
+									"name": "U"
+								},
+								"extendsType": {
+									"type": "tuple"
+								},
+								"trueType": {
+									"type": "reference",
+									"typeArguments": [
+										{
+											"type": "reference",
+											"id": 127,
+											"name": "Maps"
+										},
+										{
+											"type": "reference",
+											"id": 138,
+											"name": "T"
+										}
+									],
+									"name": "TargetDataType"
+								},
+								"falseType": {
+									"type": "reference",
+									"typeArguments": [
+										{
+											"type": "reference",
+											"typeArguments": [
+												{
+													"type": "reference",
+													"id": 127,
+													"name": "Maps"
+												},
+												{
+													"type": "reference",
+													"id": 138,
+													"name": "T"
+												}
+											],
+											"name": "TargetDataType"
+										},
+										{
+											"type": "indexedAccess",
+											"indexType": {
+												"type": "intrinsic",
+												"name": "number"
+											},
+											"objectType": {
+												"type": "reference",
+												"id": 139,
+												"name": "U"
+											}
+										}
+									],
+									"name": "Pick",
+									"qualifiedName": "Pick",
+									"package": "typescript"
+								}
+							}
+						}
+					]
+				},
+				{
+					"id": 130,
+					"name": "getParser",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 220,
+							"character": 11
+						}
+					],
+					"signatures": [
+						{
+							"id": 131,
+							"name": "getParser",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "get parser by input value type"
+									}
+								],
+								"blockTags": [
+									{
+										"tag": "@returns",
+										"content": [
+											{
+												"kind": "text",
+												"text": "matched parser"
+											}
+										]
+									}
+								]
+							},
+							"typeParameter": [
+								{
+									"id": 132,
+									"name": "T",
+									"kind": 131072,
+									"kindString": "Type parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "Object",
+										"qualifiedName": "Object",
+										"package": "typescript"
+									}
+								},
+								{
+									"id": 133,
+									"name": "U",
+									"kind": 131072,
+									"kindString": "Type parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"id": 48,
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "any"
+											},
+											{
+												"type": "reference",
+												"id": 133,
+												"name": "U"
+											}
+										],
+										"name": "DataParserBase"
+									},
+									"default": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"parameters": [
+								{
+									"id": 134,
+									"name": "value",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "input value"
+											}
+										]
+									},
+									"type": {
+										"type": "reference",
+										"id": 132,
+										"name": "T"
+									}
+								},
+								{
+									"id": 135,
+									"name": "parserType",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "can set parserType manually"
+											}
+										]
+									},
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "reference",
+												"id": 133,
+												"name": "U"
+											}
+										],
+										"name": "ConstructorType"
+									}
+								}
+							],
+							"type": {
+								"type": "conditional",
+								"checkType": {
+									"type": "reference",
+									"id": 133,
+									"name": "U"
+								},
+								"extendsType": {
+									"type": "intrinsic",
+									"name": "undefined"
+								},
+								"trueType": {
+									"type": "reference",
+									"typeArguments": [
+										{
+											"type": "indexedAccess",
+											"indexType": {
+												"type": "literal",
+												"value": "parserType"
+											},
+											"objectType": {
+												"type": "reference",
+												"id": 115,
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 127,
+														"name": "Maps"
+													},
+													{
+														"type": "reference",
+														"id": 132,
+														"name": "T"
+													}
+												],
+												"name": "GetParserByMaps"
+											}
+										}
+									],
+									"name": "InstanceType",
+									"qualifiedName": "InstanceType",
+									"package": "typescript"
+								},
+								"falseType": {
+									"type": "reference",
+									"typeArguments": [
+										{
+											"type": "reference",
+											"typeArguments": [
+												{
+													"type": "indexedAccess",
+													"indexType": {
+														"type": "literal",
+														"value": "parserType"
+													},
+													"objectType": {
+														"type": "reference",
+														"id": 115,
+														"typeArguments": [
+															{
+																"type": "reference",
+																"id": 127,
+																"name": "Maps"
+															},
+															{
+																"type": "reference",
+																"id": 132,
+																"name": "T"
+															}
+														],
+														"name": "GetParserByMaps"
+													}
+												}
+											],
+											"name": "InstanceType",
+											"qualifiedName": "InstanceType",
+											"package": "typescript"
+										},
+										{
+											"type": "reference",
+											"id": 133,
+											"name": "U"
+										}
+									],
+									"name": "Extract",
+									"qualifiedName": "Extract",
+									"package": "typescript"
+								}
+							}
+						}
+					]
+				},
+				{
+					"id": 142,
+					"name": "set",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 283,
+							"character": 11
+						}
+					],
+					"signatures": [
+						{
+							"id": 143,
+							"name": "set",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "set data by parser"
+									}
+								]
+							},
+							"typeParameter": [
+								{
+									"id": 144,
+									"name": "T",
+									"kind": 131072,
+									"kindString": "Type parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "Object",
+										"qualifiedName": "Object",
+										"package": "typescript"
+									}
+								}
+							],
+							"parameters": [
+								{
+									"id": 145,
+									"name": "value",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "input value"
+											}
+										]
+									},
+									"type": {
+										"type": "reference",
+										"id": 144,
+										"name": "T"
+									}
+								},
+								{
+									"id": 146,
+									"name": "partialTargetData",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "propertyName-propertyValue key pairs"
+											}
+										]
+									},
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 127,
+														"name": "Maps"
+													},
+													{
+														"type": "reference",
+														"id": 144,
+														"name": "T"
+													}
+												],
+												"name": "TargetDataType"
+											}
+										],
+										"name": "Partial",
+										"qualifiedName": "Partial",
+										"package": "typescript"
+									}
+								},
+								{
+									"id": 147,
+									"name": "extras",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "extras data,which is helpful when we want to do something else after the property is been set"
+											}
+										]
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 148,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"children": [
+												{
+													"id": 150,
+													"name": "callback",
+													"kind": 1024,
+													"kindString": "Property",
+													"flags": {
+														"isOptional": true
+													},
+													"sources": [
+														{
+															"fileName": "index.ts",
+															"line": 283,
+															"character": 144
+														}
+													],
+													"type": {
+														"type": "reflection",
+														"declaration": {
+															"id": 151,
+															"name": "__type",
+															"kind": 65536,
+															"kindString": "Type literal",
+															"flags": {},
+															"sources": [
+																{
+																	"fileName": "index.ts",
+																	"line": 283,
+																	"character": 155
+																}
+															],
+															"signatures": [
+																{
+																	"id": 152,
+																	"name": "__type",
+																	"kind": 4096,
+																	"kindString": "Call signature",
+																	"flags": {},
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "void"
+																	}
+																}
+															]
+														}
+													}
+												},
+												{
+													"id": 149,
+													"name": "exData",
+													"kind": 1024,
+													"kindString": "Property",
+													"flags": {
+														"isOptional": true
+													},
+													"sources": [
+														{
+															"fileName": "index.ts",
+															"line": 283,
+															"character": 130
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "any"
+													}
+												}
+											],
+											"groups": [
+												{
+													"title": "Properties",
+													"children": [
+														150,
+														149
+													]
+												}
+											],
+											"sources": [
+												{
+													"fileName": "index.ts",
+													"line": 283,
+													"character": 128
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				},
+				{
+					"id": 122,
+					"name": "registerMap",
+					"kind": 2048,
+					"kindString": "Method",
+					"flags": {
+						"isPublic": true,
+						"isStatic": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 203,
+							"character": 18
+						}
+					],
+					"signatures": [
+						{
+							"id": 123,
+							"name": "registerMap",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "add parser map to helper to registe"
+									}
+								]
+							},
+							"parameters": [
+								{
+									"id": 124,
+									"name": "map",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "parser map to add"
+											}
+										]
+									},
+									"type": {
+										"type": "reference",
+										"id": 108,
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "any"
+											}
+										],
+										"name": "MapInstanceType"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Constructors",
+					"children": [
+						125
+					]
+				},
+				{
+					"title": "Properties",
+					"children": [
+						129,
+						121
+					]
+				},
+				{
+					"title": "Methods",
+					"children": [
+						136,
+						130,
+						142,
+						122
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "index.ts",
+					"line": 175,
+					"character": 22
+				}
+			],
+			"typeParameters": [
+				{
+					"id": 153,
+					"name": "Maps",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {},
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"id": 8,
+							"name": "ParserMap"
+						}
+					}
+				}
+			]
+		},
+		{
+			"id": 18,
+			"name": "IDataParser",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "data parser interface"
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 19,
+					"name": "propertyGetters",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 19,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "mapped",
+						"parameter": "P",
+						"parameterType": {
+							"type": "union",
+							"types": [
+								{
+									"type": "intrinsic",
+									"name": "string"
+								},
+								{
+									"type": "intrinsic",
+									"name": "number"
+								},
+								{
+									"type": "intrinsic",
+									"name": "symbol"
+								}
+							]
+						},
+						"templateType": {
+							"type": "reflection",
+							"declaration": {
+								"id": 20,
+								"name": "__type",
+								"kind": 65536,
+								"kindString": "Type literal",
+								"flags": {},
+								"sources": [
+									{
+										"fileName": "index.ts",
+										"line": 19,
+										"character": 59
+									}
+								],
+								"signatures": [
+									{
+										"id": 21,
+										"name": "__type",
+										"kind": 4096,
+										"kindString": "Call signature",
+										"flags": {},
+										"parameters": [
+											{
+												"id": 22,
+												"name": "value",
+												"kind": 32768,
+												"kindString": "Parameter",
+												"flags": {},
+												"type": {
+													"type": "indexedAccess",
+													"indexType": {
+														"type": "literal",
+														"value": "oriObjectType"
+													},
+													"objectType": {
+														"type": "reference",
+														"id": 34,
+														"name": "Map"
+													}
+												}
+											},
+											{
+												"id": 23,
+												"name": "propertyName",
+												"kind": 32768,
+												"kindString": "Parameter",
+												"flags": {},
+												"type": {
+													"type": "intrinsic",
+													"name": "string"
+												}
+											}
+										],
+										"type": {
+											"type": "indexedAccess",
+											"indexType": {
+												"type": "reference",
+												"name": "P"
+											},
+											"objectType": {
+												"type": "indexedAccess",
+												"indexType": {
+													"type": "literal",
+													"value": "targetDataType"
+												},
+												"objectType": {
+													"type": "reference",
+													"id": 34,
+													"name": "Map"
+												}
+											}
+										}
+									}
+								]
+							}
+						}
+					}
+				},
+				{
+					"id": 24,
+					"name": "propertySetters",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 20,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "mapped",
+						"parameter": "P",
+						"parameterType": {
+							"type": "union",
+							"types": [
+								{
+									"type": "intrinsic",
+									"name": "string"
+								},
+								{
+									"type": "intrinsic",
+									"name": "number"
+								},
+								{
+									"type": "intrinsic",
+									"name": "symbol"
+								}
+							]
+						},
+						"templateType": {
+							"type": "reflection",
+							"declaration": {
+								"id": 25,
+								"name": "__type",
+								"kind": 65536,
+								"kindString": "Type literal",
+								"flags": {},
+								"sources": [
+									{
+										"fileName": "index.ts",
+										"line": 20,
+										"character": 59
+									}
+								],
+								"signatures": [
+									{
+										"id": 26,
+										"name": "__type",
+										"kind": 4096,
+										"kindString": "Call signature",
+										"flags": {},
+										"parameters": [
+											{
+												"id": 27,
+												"name": "value",
+												"kind": 32768,
+												"kindString": "Parameter",
+												"flags": {},
+												"type": {
+													"type": "indexedAccess",
+													"indexType": {
+														"type": "literal",
+														"value": "oriObjectType"
+													},
+													"objectType": {
+														"type": "reference",
+														"id": 34,
+														"name": "Map"
+													}
+												}
+											},
+											{
+												"id": 28,
+												"name": "targetValue",
+												"kind": 32768,
+												"kindString": "Parameter",
+												"flags": {},
+												"type": {
+													"type": "indexedAccess",
+													"indexType": {
+														"type": "reference",
+														"name": "P"
+													},
+													"objectType": {
+														"type": "indexedAccess",
+														"indexType": {
+															"type": "literal",
+															"value": "targetDataType"
+														},
+														"objectType": {
+															"type": "reference",
+															"id": 34,
+															"name": "Map"
+														}
+													}
+												}
+											},
+											{
+												"id": 29,
+												"name": "propertyName",
+												"kind": 32768,
+												"kindString": "Parameter",
+												"flags": {
+													"isOptional": true
+												},
+												"type": {
+													"type": "intrinsic",
+													"name": "string"
+												}
+											},
+											{
+												"id": 30,
+												"name": "exData",
+												"kind": 32768,
+												"kindString": "Parameter",
+												"flags": {
+													"isOptional": true
+												},
+												"type": {
+													"type": "indexedAccess",
+													"indexType": {
+														"type": "literal",
+														"value": "exDataType"
+													},
+													"objectType": {
+														"type": "reference",
+														"id": 34,
+														"name": "Map"
+													}
+												}
+											},
+											{
+												"id": 31,
+												"name": "callback",
+												"kind": 32768,
+												"kindString": "Parameter",
+												"flags": {
+													"isOptional": true
+												},
+												"type": {
+													"type": "reflection",
+													"declaration": {
+														"id": 32,
+														"name": "__type",
+														"kind": 65536,
+														"kindString": "Type literal",
+														"flags": {},
+														"sources": [
+															{
+																"fileName": "index.ts",
+																"line": 20,
+																"character": 190
+															}
+														],
+														"signatures": [
+															{
+																"id": 33,
+																"name": "__type",
+																"kind": 4096,
+																"kindString": "Call signature",
+																"flags": {},
+																"type": {
+																	"type": "intrinsic",
+																	"name": "void"
+																}
+															}
+														]
+													}
+												}
+											}
+										],
+										"type": {
+											"type": "intrinsic",
+											"name": "void"
+										}
+									}
+								]
+							}
+						}
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						19,
+						24
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "index.ts",
+					"line": 17,
+					"character": 17
+				}
+			],
+			"typeParameters": [
+				{
+					"id": 34,
+					"name": "Map",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {},
+					"type": {
+						"type": "reference",
+						"id": 8,
+						"name": "ParserMap"
+					}
+				}
+			]
+		},
+		{
+			"id": 115,
+			"name": "GetParserByMaps",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "get parserType by original objet type"
+					}
+				],
+				"blockTags": [
+					{
+						"tag": "@example",
+						"content": [
+							{
+								"kind": "code",
+								"text": "```ts\n// get parser type\r\ntype parserType = GetParserByMaps<ParserMaps,A>; // which will be AParser\n```"
+							}
+						]
+					}
+				]
+			},
+			"sources": [
+				{
+					"fileName": "index.ts",
+					"line": 157,
+					"character": 12
+				}
+			],
+			"typeParameters": [
+				{
+					"id": 118,
+					"name": "Maps",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {},
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"id": 8,
+							"name": "ParserMap"
+						}
+					}
+				},
+				{
+					"id": 119,
+					"name": "OriObjectType",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {}
+				}
+			],
+			"type": {
+				"type": "indexedAccess",
+				"indexType": {
+					"type": "indexedAccess",
+					"indexType": {
+						"type": "intrinsic",
+						"name": "number"
+					},
+					"objectType": {
+						"type": "mapped",
+						"parameter": "key",
+						"parameterType": {
+							"type": "typeOperator",
+							"operator": "keyof",
+							"target": {
+								"type": "reference",
+								"id": 118,
+								"name": "Maps"
+							}
+						},
+						"templateType": {
+							"type": "conditional",
+							"checkType": {
+								"type": "indexedAccess",
+								"indexType": {
+									"type": "reference",
+									"name": "key"
+								},
+								"objectType": {
+									"type": "reference",
+									"id": 118,
+									"name": "Maps"
+								}
+							},
+							"extendsType": {
+								"type": "reflection",
+								"declaration": {
+									"id": 116,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"children": [
+										{
+											"id": 117,
+											"name": "oriObjectType",
+											"kind": 1024,
+											"kindString": "Property",
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "index.ts",
+													"line": 158,
+													"character": 45
+												}
+											],
+											"type": {
+												"type": "reference",
+												"id": 119,
+												"name": "OriObjectType"
+											}
+										}
+									],
+									"groups": [
+										{
+											"title": "Properties",
+											"children": [
+												117
+											]
+										}
+									],
+									"sources": [
+										{
+											"fileName": "index.ts",
+											"line": 158,
+											"character": 43
+										}
+									]
+								}
+							},
+							"trueType": {
+								"type": "reference",
+								"name": "key"
+							},
+							"falseType": {
+								"type": "intrinsic",
+								"name": "never"
+							}
+						}
+					}
+				},
+				"objectType": {
+					"type": "reference",
+					"id": 118,
+					"name": "Maps"
+				}
+			}
+		},
+		{
+			"id": 108,
+			"name": "MapInstanceType",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "this type is used to registe parserHelper"
+					}
+				]
+			},
+			"sources": [
+				{
+					"fileName": "index.ts",
+					"line": 139,
+					"character": 12
+				}
+			],
+			"typeParameters": [
+				{
+					"id": 112,
+					"name": "Map",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {},
+					"type": {
+						"type": "reference",
+						"id": 8,
+						"name": "ParserMap"
+					}
+				}
+			],
+			"type": {
+				"type": "reflection",
+				"declaration": {
+					"id": 109,
+					"name": "__type",
+					"kind": 65536,
+					"kindString": "Type literal",
+					"flags": {},
+					"children": [
+						{
+							"id": 110,
+							"name": "oriObjectType",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "index.ts",
+									"line": 139,
+									"character": 55
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "indexedAccess",
+										"indexType": {
+											"type": "literal",
+											"value": "oriObjectType"
+										},
+										"objectType": {
+											"type": "reference",
+											"id": 112,
+											"name": "Map"
+										}
+									}
+								],
+								"name": "ConstructorType"
+							}
+						},
+						{
+							"id": 111,
+							"name": "parser",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "index.ts",
+									"line": 139,
+									"character": 109
+								}
+							],
+							"type": {
+								"type": "indexedAccess",
+								"indexType": {
+									"type": "literal",
+									"value": "parserType"
+								},
+								"objectType": {
+									"type": "reference",
+									"id": 112,
+									"name": "Map"
+								}
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								110,
+								111
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 139,
+							"character": 53
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": 8,
+			"name": "ParserMap",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "create a parsermap type"
+					}
+				],
+				"blockTags": [
+					{
+						"tag": "@example",
+						"content": [
+							{
+								"kind": "code",
+								"text": "```ts\n// parse A to ATarget\r\ntype AParserMap = ParserMap<A, ATarget>;\n```"
+							}
+						]
+					}
+				]
+			},
+			"sources": [
+				{
+					"fileName": "index.ts",
+					"line": 7,
+					"character": 12
+				}
+			],
+			"typeParameters": [
+				{
+					"id": 14,
+					"name": "OriObjectType",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {},
+					"type": {
+						"type": "reference",
+						"name": "Object",
+						"qualifiedName": "Object",
+						"package": "typescript"
+					},
+					"default": {
+						"type": "reference",
+						"name": "Object",
+						"qualifiedName": "Object",
+						"package": "typescript"
+					}
+				},
+				{
+					"id": 15,
+					"name": "TargetDataType",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {},
+					"type": {
+						"type": "reference",
+						"typeArguments": [
+							{
+								"type": "intrinsic",
+								"name": "string"
+							},
+							{
+								"type": "intrinsic",
+								"name": "any"
+							}
+						],
+						"name": "Record",
+						"qualifiedName": "Record",
+						"package": "typescript"
+					},
+					"default": {
+						"type": "reference",
+						"typeArguments": [
+							{
+								"type": "intrinsic",
+								"name": "string"
+							},
+							{
+								"type": "intrinsic",
+								"name": "any"
+							}
+						],
+						"name": "Record",
+						"qualifiedName": "Record",
+						"package": "typescript"
+					}
+				},
+				{
+					"id": 16,
+					"name": "ExDataType",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {},
+					"default": {
+						"type": "intrinsic",
+						"name": "unknown"
+					}
+				},
+				{
+					"id": 17,
+					"name": "ParserType",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {},
+					"type": {
+						"type": "reference",
+						"id": 48,
+						"typeArguments": [
+							{
+								"type": "intrinsic",
+								"name": "any"
+							}
+						],
+						"name": "DataParserBase"
+					},
+					"default": {
+						"type": "reference",
+						"id": 48,
+						"typeArguments": [
+							{
+								"type": "intrinsic",
+								"name": "any"
+							}
+						],
+						"name": "DataParserBase"
+					}
+				}
+			],
+			"type": {
+				"type": "reflection",
+				"declaration": {
+					"id": 9,
+					"name": "__type",
+					"kind": 65536,
+					"kindString": "Type literal",
+					"flags": {},
+					"children": [
+						{
+							"id": 12,
+							"name": "exDataType",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "index.ts",
+									"line": 10,
+									"character": 4
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 16,
+								"name": "ExDataType"
+							}
+						},
+						{
+							"id": 10,
+							"name": "oriObjectType",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "index.ts",
+									"line": 8,
+									"character": 4
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 14,
+								"name": "OriObjectType"
+							}
+						},
+						{
+							"id": 13,
+							"name": "parserType",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "index.ts",
+									"line": 11,
+									"character": 4
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "reference",
+										"id": 17,
+										"name": "ParserType"
+									}
+								],
+								"name": "ConstructorType"
+							}
+						},
+						{
+							"id": 11,
+							"name": "targetDataType",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "index.ts",
+									"line": 9,
+									"character": 4
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 15,
+								"name": "TargetDataType"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								12,
+								10,
+								13,
+								11
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 7,
+							"character": 213
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": 113,
+			"name": "ParserMapsBase",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "create a parserMaps which contains many parserMap"
+					}
+				],
+				"blockTags": [
+					{
+						"tag": "@example",
+						"content": [
+							{
+								"kind": "code",
+								"text": "```ts\n// create a parserMaps contains AParserMap,BParserMap and CParserMap\r\ntype ParserMaps = ParserMapsBase<[AParserMap, BParserMap, CParserMap]>;\n```"
+							}
+						]
+					}
+				]
+			},
+			"sources": [
+				{
+					"fileName": "index.ts",
+					"line": 149,
+					"character": 12
+				}
+			],
+			"typeParameters": [
+				{
+					"id": 114,
+					"name": "Maps",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {},
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"id": 8,
+							"name": "ParserMap"
+						}
+					}
+				}
+			],
+			"type": {
+				"type": "reference",
+				"id": 114,
+				"name": "Maps"
+			}
+		},
+		{
+			"id": 35,
+			"name": "DefaultGetter",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "index.ts",
+					"line": 29,
+					"character": 13
+				}
+			],
+			"signatures": [
+				{
+					"id": 36,
+					"name": "DefaultGetter",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "default getter,get property directly"
+							}
+						],
+						"blockTags": [
+							{
+								"tag": "@returns",
+								"content": [
+									{
+										"kind": "text",
+										"text": "value[propertyName]"
+									}
+								]
+							}
+						]
+					},
+					"parameters": [
+						{
+							"id": 37,
+							"name": "value",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "original data"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 38,
+							"name": "propertyName",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "the propertyName"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "any"
+					}
+				}
+			]
+		},
+		{
+			"id": 39,
+			"name": "DefaultSetter",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "index.ts",
+					"line": 37,
+					"character": 13
+				}
+			],
+			"signatures": [
+				{
+					"id": 40,
+					"name": "DefaultSetter",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "default setter,set property directly"
+							}
+						]
+					},
+					"parameters": [
+						{
+							"id": 41,
+							"name": "value",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "original data"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 42,
+							"name": "targetValue",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "target value"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "unknown"
+							}
+						},
+						{
+							"id": 43,
+							"name": "propertyName",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "the propertyName"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 44,
+							"name": "exData",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {
+								"isOptional": true
+							},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "extras data,which is helpful when we want to do something else after the property is been set"
+									}
+								]
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "unknown"
+							}
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "void"
+					}
+				}
+			]
+		},
+		{
+			"id": 45,
+			"name": "EmptySetter",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "index.ts",
+					"line": 42,
+					"character": 13
+				}
+			],
+			"signatures": [
+				{
+					"id": 46,
+					"name": "EmptySetter",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "do nothing,which is helpful is we want this property to be readonly"
+							}
+						]
+					},
+					"parameters": [
+						{
+							"id": 47,
+							"name": "args",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {
+								"isRest": true
+							},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "any arguments"
+									}
+								]
+							},
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "unknown"
+								}
+							}
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "void"
+					}
+				}
+			]
+		},
+		{
+			"id": 1,
+			"name": "addToParserHelper",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "index.ts",
+					"line": 167,
+					"character": 16
+				}
+			],
+			"signatures": [
+				{
+					"id": 2,
+					"name": "addToParserHelper",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "add parser to parser helper so the helper can select the parser by input value type"
+							}
+						]
+					},
+					"typeParameter": [
+						{
+							"id": 3,
+							"name": "OriObjectType",
+							"kind": 131072,
+							"kindString": "Type parameter",
+							"flags": {}
+						}
+					],
+					"parameters": [
+						{
+							"id": 4,
+							"name": "oriObjectType",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"comment": {
+								"summary": [
+									{
+										"kind": "text",
+										"text": "original object type"
+									}
+								]
+							},
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "reference",
+										"id": 3,
+										"name": "OriObjectType"
+									}
+								],
+								"name": "ConstructorType"
+							}
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 5,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "index.ts",
+									"line": 169,
+									"character": 11
+								}
+							],
+							"signatures": [
+								{
+									"id": 6,
+									"name": "__type",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 7,
+											"name": "target",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 48,
+														"typeArguments": [
+															{
+																"type": "reference",
+																"id": 8,
+																"typeArguments": [
+																	{
+																		"type": "reference",
+																		"id": 3,
+																		"name": "OriObjectType"
+																	},
+																	{
+																		"type": "reference",
+																		"typeArguments": [
+																			{
+																				"type": "intrinsic",
+																				"name": "string"
+																			},
+																			{
+																				"type": "intrinsic",
+																				"name": "any"
+																			}
+																		],
+																		"name": "Record",
+																		"qualifiedName": "Record",
+																		"package": "typescript"
+																	},
+																	{
+																		"type": "intrinsic",
+																		"name": "unknown"
+																	},
+																	{
+																		"type": "reference",
+																		"id": 48,
+																		"typeArguments": [
+																			{
+																				"type": "intrinsic",
+																				"name": "any"
+																			}
+																		],
+																		"name": "DataParserBase"
+																	}
+																],
+																"name": "ParserMap"
+															}
+														],
+														"name": "DataParserBase"
+													}
+												],
+												"name": "ConstructorType"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						}
+					}
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "Classes",
+			"children": [
+				48,
+				120
+			]
+		},
+		{
+			"title": "Interfaces",
+			"children": [
+				18
+			]
+		},
+		{
+			"title": "Type Aliases",
+			"children": [
+				115,
+				108,
+				8,
+				113
+			]
+		},
+		{
+			"title": "Functions",
+			"children": [
+				35,
+				39,
+				45,
+				1
+			]
+		}
+	],
+	"sources": [
+		{
+			"fileName": "index.ts",
+			"line": 7,
+			"character": 0
+		}
+	]
+}

@@ -1,0 +1,57 @@
+{
+  "name": "typed-data-parser",
+  "version": "0.0.1",
+  "description": "typed-data-parser",
+  "main": "bin/cjs/index.js",
+  "module": "bin/es/index.js",
+  "types": "bin/dts/index.d.ts",
+  "scripts": {
+    "init": "cmd /k init",
+    "link": "cmd /k link",
+    "test": "npx jest",
+    "build": "npx --no-install rimraf bin && npm run _build-es && npm run _build-cjs && npm run _build-iife && tsc-alias --dir bin/dts && node ./build-scripts/post-build.js",
+    "docs": "npx --no-install rimraf docs && npm run _docs-html && npm run _docs-md && npm run _docs-json && npm run _docs-readme",
+    "*push": "npm i && npm run build && npm run docs && git add . -A && git commit -a && git push origin master",
+    "**publish": "npm version patch && npm publish",
+    "_build-es": "npx tsc --outDir bin/es --target es6 --module es6 && tsc-alias --dir bin/es",
+    "_build-cjs": "npx tsc --outDir bin/cjs  --target es6 --module commonjs && tsc-alias --dir bin/cjs",
+    "_build-iife": "npx rollup --config rollup.config.js",
+    "_docs-json": "npx --no-install rimraf docs/json && npx typedoc --options build-scripts/typedoc.json.js --json docs/json/api.json",
+    "_docs-md": "npx --no-install rimraf docs/md && npx typedoc --options build-scripts/typedoc.md.js --plugin typedoc-plugin-markdown",
+    "_docs-html": "npx --no-install rimraf docs && npx typedoc --options build-scripts/typedoc.html.js --plugin none",
+    "_docs-readme": "node ./build-scripts/build-readme.js"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.5.0",
+    "@types/jest": "^29.0.3",
+    "jest": "^29.0.3",
+    "release-it": "^15.4.2",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.79.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "ts-jest": "^29.0.2",
+    "tsc-alias": "^1.7.0",
+    "tslib": "^2.4.0",
+    "typedoc": "^0.23.15",
+    "typedoc-plugin-markdown": "^3.13.6",
+    "typescript": "^4.8.3"
+  },
+  "files": [
+    "bin/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheFBplus/typed-data-parser.git"
+  },
+  "keywords": [
+    "utils",
+    "typescript"
+  ],
+  "author": "fbplus",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheFBplus/typed-data-parser/issues"
+  },
+  "homepage": "https://github.com/TheFBplus/typed-data-parser#readme",
+  "dependencies": {}
+}
