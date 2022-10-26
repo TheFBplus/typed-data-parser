@@ -1,12 +1,12 @@
 [typed-data-parser](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md) / ParserHelperBase
 
-# Class: ParserHelperBase<Maps\>
+# Class: ParserHelperBase<Rules\>
 
 ## Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `Maps` | extends [`ParserMap`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md#parsermap)[] |
+| `Rules` | extends [`ParserRule`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md#parserrule)[] |
 
 ## Table of contents
 
@@ -16,21 +16,19 @@
 
 ### Properties
 
-- [parserCreated](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/classes/ParserHelperBase.md#parsercreated)
-- [parserMaps](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/classes/ParserHelperBase.md#parsermaps)
+- [parserRules](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/classes/ParserHelperBase.md#parserrules)
 
 ### Methods
 
 - [get](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/classes/ParserHelperBase.md#get)
 - [getParser](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/classes/ParserHelperBase.md#getparser)
 - [set](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/classes/ParserHelperBase.md#set)
-- [registerMap](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/classes/ParserHelperBase.md#registermap)
 
 ## Constructors
 
 ### constructor
 
-• **new ParserHelperBase**<`Maps`\>(`maps?`)
+• **new ParserHelperBase**<`Rules`\>(`parsers?`)
 
 Creates an instance of parser helper base.
 
@@ -38,47 +36,35 @@ Creates an instance of parser helper base.
 
 | Name | Type |
 | :------ | :------ |
-| `Maps` | extends [`ParserMap`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md#parsermap)<`Object`, `Record`<`string`, `any`\>, `unknown`, [`DataParserBase`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/classes/DataParserBase.md)<`any`\>\>[] |
+| `Rules` | extends [`ParserRule`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md#parserrule)<`Object`, `Record`<`string`, `any`\>, `any`, [`DataParserBase`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/classes/DataParserBase.md)<`any`\>\>[] |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `maps?` | [`MapInstanceType`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md#mapinstancetype)<`Maps`[`number`]\>[] |
+| `parsers?` | `InstanceType`<`Rules`[`number`][``"parserType"``]\>[] |
 
 #### Defined in
 
-index.ts:191
+index.ts:177
 
 ## Properties
 
-### parserCreated
+### parserRules
 
-• `Protected` **parserCreated**: `Map`<`ConstructorType`<[`DataParserBase`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/classes/DataParserBase.md)<`any`\>\>, [`DataParserBase`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/classes/DataParserBase.md)<`any`\>\>
+• `Protected` **parserRules**: `Map`<`Object`, `Set`<[`DataParserBase`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/classes/DataParserBase.md)<`any`\>\>\>
 
-the parser created,use to cache
-
-#### Defined in
-
-index.ts:184
-
-___
-
-### parserMaps
-
-▪ `Static` `Protected` **parserMaps**: `Map`<`Object`, `Set`<`ConstructorType`<[`DataParserBase`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/classes/DataParserBase.md)<`any`\>\>\>\>
-
-parser map that is registed to the helper
+parser rules that is registed to the helper
 
 #### Defined in
 
-index.ts:180
+index.ts:171
 
 ## Methods
 
 ### get
 
-▸ **get**<`T`, `U`\>(`value`, ...`propertyNames`): `U` extends [] ? `TargetDataType`<`Maps`, `T`\> : `Pick`<`TargetDataType`<`Maps`, `T`\>, `U`[`number`]\>
+▸ **get**<`T`, `U`\>(`value`, ...`propertyNames`): `U` extends [] ? `TargetDataType`<`Rules`, `T`\> : `Pick`<`TargetDataType`<`Rules`, `T`\>, `U`[`number`]\>
 
 get data from parser
 
@@ -87,7 +73,7 @@ get data from parser
 | Name | Type |
 | :------ | :------ |
 | `T` | extends `Object` |
-| `U` | extends `Extract`<keyof `TargetDataType`<`Maps`, `T`\>, `string`\>[] |
+| `U` | extends `Extract`<keyof `TargetDataType`<`Rules`, `T`\>, `string`\>[] |
 
 #### Parameters
 
@@ -98,19 +84,19 @@ get data from parser
 
 #### Returns
 
-`U` extends [] ? `TargetDataType`<`Maps`, `T`\> : `Pick`<`TargetDataType`<`Maps`, `T`\>, `U`[`number`]\>
+`U` extends [] ? `TargetDataType`<`Rules`, `T`\> : `Pick`<`TargetDataType`<`Rules`, `T`\>, `U`[`number`]\>
 
 data matched propertyNames
 
 #### Defined in
 
-index.ts:265
+index.ts:222
 
 ___
 
 ### getParser
 
-▸ **getParser**<`T`, `U`\>(`value`, `parserType?`): `U` extends `undefined` ? `InstanceType`<[`GetParserByMaps`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md#getparserbymaps)<`Maps`, `T`\>[``"parserType"``]\> : `Extract`<`InstanceType`<[`GetParserByMaps`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md#getparserbymaps)<`Maps`, `T`\>[``"parserType"``]\>, `U`\>
+▸ **getParser**<`T`, `U`\>(`value`, `parserType?`): `U` extends `undefined` ? `InstanceType`<[`GetParserByRules`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md#getparserbyrules)<`Rules`, `T`\>[``"parserType"``]\> : `Extract`<`InstanceType`<[`GetParserByRules`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md#getparserbyrules)<`Rules`, `T`\>[``"parserType"``]\>, `U`\>
 
 get parser by input value type
 
@@ -130,13 +116,13 @@ get parser by input value type
 
 #### Returns
 
-`U` extends `undefined` ? `InstanceType`<[`GetParserByMaps`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md#getparserbymaps)<`Maps`, `T`\>[``"parserType"``]\> : `Extract`<`InstanceType`<[`GetParserByMaps`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md#getparserbymaps)<`Maps`, `T`\>[``"parserType"``]\>, `U`\>
+`U` extends `undefined` ? `InstanceType`<[`GetParserByRules`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md#getparserbyrules)<`Rules`, `T`\>[``"parserType"``]\> : `Extract`<`InstanceType`<[`GetParserByRules`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md#getparserbyrules)<`Rules`, `T`\>[``"parserType"``]\>, `U`\>
 
 matched parser
 
 #### Defined in
 
-index.ts:220
+index.ts:197
 
 ___
 
@@ -157,7 +143,7 @@ set data by parser
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `value` | `T` | input value |
-| `partialTargetData` | `Partial`<`TargetDataType`<`Maps`, `T`\>\> | propertyName-propertyValue key pairs |
+| `partialTargetData` | `Partial`<`TargetDataType`<`Rules`, `T`\>\> | propertyName-propertyValue key pairs |
 | `extras?` | `Object` | extras data,which is helpful when we want to do something else after the property is been set |
 | `extras.callback?` | () => `void` | - |
 | `extras.exData?` | `any` | - |
@@ -168,26 +154,4 @@ set data by parser
 
 #### Defined in
 
-index.ts:283
-
-___
-
-### registerMap
-
-▸ `Static` **registerMap**(`map`): `void`
-
-add parser map to helper to registe
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `map` | [`MapInstanceType`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md#mapinstancetype)<`any`\> | parser map to add |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-index.ts:203
+index.ts:234

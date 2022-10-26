@@ -7,7 +7,7 @@
 	"originalName": "",
 	"children": [
 		{
-			"id": 48,
+			"id": 41,
 			"name": "DataParserBase",
 			"kind": 128,
 			"kindString": "Class",
@@ -27,7 +27,7 @@
 						"content": [
 							{
 								"kind": "code",
-								"text": "```ts\n// define a parser which parser A to ATarget\r\nclass AParser extends DataParserBase<AParserMap> { }\n```"
+								"text": "```ts\n// define a parser which parser A to ATarget\r\nclass AParser extends DataParserBase<AParserRule> { }\n```"
 							}
 						]
 					}
@@ -35,28 +35,36 @@
 			},
 			"children": [
 				{
-					"id": 51,
+					"id": 44,
 					"name": "constructor",
 					"kind": 512,
 					"kindString": "Constructor",
 					"flags": {},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 56,
+							"character": 4,
+							"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L56"
+						}
+					],
 					"signatures": [
 						{
-							"id": 52,
+							"id": 45,
 							"name": "new DataParserBase",
 							"kind": 16384,
 							"kindString": "Constructor signature",
 							"flags": {},
 							"typeParameter": [
 								{
-									"id": 53,
-									"name": "parserMap",
+									"id": 46,
+									"name": "parserRule",
 									"kind": 131072,
 									"kindString": "Type parameter",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 8,
+										"id": 1,
 										"typeArguments": [
 											{
 												"type": "reference",
@@ -82,11 +90,11 @@
 											},
 											{
 												"type": "intrinsic",
-												"name": "unknown"
+												"name": "any"
 											},
 											{
 												"type": "reference",
-												"id": 48,
+												"id": 41,
 												"typeArguments": [
 													{
 														"type": "intrinsic",
@@ -96,18 +104,45 @@
 												"name": "DataParserBase"
 											}
 										],
-										"name": "ParserMap"
+										"name": "ParserRule"
+									}
+								}
+							],
+							"parameters": [
+								{
+									"id": 47,
+									"name": "oriDataType",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "indexedAccess",
+												"indexType": {
+													"type": "literal",
+													"value": "oriObjectType"
+												},
+												"objectType": {
+													"type": "reference",
+													"id": 46,
+													"name": "parserRule"
+												}
+											}
+										],
+										"name": "ConstructorType"
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 48,
+								"id": 41,
 								"typeArguments": [
 									{
 										"type": "reference",
-										"id": 53,
-										"name": "parserMap"
+										"id": 46,
+										"name": "parserRule"
 									}
 								],
 								"name": "DataParserBase"
@@ -116,7 +151,43 @@
 					]
 				},
 				{
-					"id": 49,
+					"id": 48,
+					"name": "oriObjectType",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isPublic": true,
+						"isReadonly": true
+					},
+					"sources": [
+						{
+							"fileName": "index.ts",
+							"line": 54,
+							"character": 20,
+							"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L54"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"typeArguments": [
+							{
+								"type": "indexedAccess",
+								"indexType": {
+									"type": "literal",
+									"value": "oriObjectType"
+								},
+								"objectType": {
+									"type": "reference",
+									"id": 46,
+									"name": "parserRule"
+								}
+							}
+						],
+						"name": "ConstructorType"
+					}
+				},
+				{
+					"id": 42,
 					"name": "gettersCache",
 					"kind": 1024,
 					"kindString": "Property",
@@ -128,7 +199,8 @@
 						{
 							"fileName": "index.ts",
 							"line": 51,
-							"character": 19
+							"character": 19,
+							"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L51"
 						}
 					],
 					"type": {
@@ -136,7 +208,7 @@
 						"typeArguments": [
 							{
 								"type": "reference",
-								"id": 48,
+								"id": 41,
 								"typeArguments": [
 									{
 										"type": "intrinsic",
@@ -157,7 +229,7 @@
 					"defaultValue": "..."
 				},
 				{
-					"id": 50,
+					"id": 43,
 					"name": "settersCache",
 					"kind": 1024,
 					"kindString": "Property",
@@ -169,7 +241,8 @@
 						{
 							"fileName": "index.ts",
 							"line": 52,
-							"character": 19
+							"character": 19,
+							"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L52"
 						}
 					],
 					"type": {
@@ -177,7 +250,7 @@
 						"typeArguments": [
 							{
 								"type": "reference",
-								"id": 48,
+								"id": 41,
 								"typeArguments": [
 									{
 										"type": "intrinsic",
@@ -198,7 +271,7 @@
 					"defaultValue": "..."
 				},
 				{
-					"id": 54,
+					"id": 49,
 					"name": "propertyGetters",
 					"kind": 262144,
 					"kindString": "Accessor",
@@ -209,12 +282,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 54,
-							"character": 24
+							"line": 61,
+							"character": 24,
+							"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L61"
 						}
 					],
 					"getSignature": {
-						"id": 55,
+						"id": 50,
 						"name": "propertyGetters",
 						"kind": 524288,
 						"kindString": "Get signature",
@@ -242,7 +316,7 @@
 							"templateType": {
 								"type": "reflection",
 								"declaration": {
-									"id": 56,
+									"id": 51,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
@@ -251,19 +325,20 @@
 										{
 											"fileName": "index.ts",
 											"line": 19,
-											"character": 59
+											"character": 60,
+											"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L19"
 										}
 									],
 									"signatures": [
 										{
-											"id": 57,
+											"id": 52,
 											"name": "__type",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 58,
+													"id": 53,
 													"name": "value",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -276,13 +351,13 @@
 														},
 														"objectType": {
 															"type": "reference",
-															"id": 53,
-															"name": "parserMap"
+															"id": 46,
+															"name": "parserRule"
 														}
 													}
 												},
 												{
-													"id": 59,
+													"id": 54,
 													"name": "propertyName",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -307,8 +382,8 @@
 													},
 													"objectType": {
 														"type": "reference",
-														"id": 53,
-														"name": "parserMap"
+														"id": 46,
+														"name": "parserRule"
 													}
 												}
 											}
@@ -320,7 +395,7 @@
 					}
 				},
 				{
-					"id": 68,
+					"id": 63,
 					"name": "propertySetters",
 					"kind": 262144,
 					"kindString": "Accessor",
@@ -331,12 +406,13 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 65,
-							"character": 24
+							"line": 72,
+							"character": 24,
+							"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L72"
 						}
 					],
 					"getSignature": {
-						"id": 69,
+						"id": 64,
 						"name": "propertySetters",
 						"kind": 524288,
 						"kindString": "Get signature",
@@ -364,7 +440,7 @@
 							"templateType": {
 								"type": "reflection",
 								"declaration": {
-									"id": 70,
+									"id": 65,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
@@ -373,19 +449,20 @@
 										{
 											"fileName": "index.ts",
 											"line": 20,
-											"character": 59
+											"character": 60,
+											"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L20"
 										}
 									],
 									"signatures": [
 										{
-											"id": 71,
+											"id": 66,
 											"name": "__type",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 72,
+													"id": 67,
 													"name": "value",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -398,13 +475,13 @@
 														},
 														"objectType": {
 															"type": "reference",
-															"id": 53,
-															"name": "parserMap"
+															"id": 46,
+															"name": "parserRule"
 														}
 													}
 												},
 												{
-													"id": 73,
+													"id": 68,
 													"name": "targetValue",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -423,14 +500,14 @@
 															},
 															"objectType": {
 																"type": "reference",
-																"id": 53,
-																"name": "parserMap"
+																"id": 46,
+																"name": "parserRule"
 															}
 														}
 													}
 												},
 												{
-													"id": 74,
+													"id": 69,
 													"name": "propertyName",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -443,7 +520,7 @@
 													}
 												},
 												{
-													"id": 75,
+													"id": 70,
 													"name": "exData",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -458,13 +535,13 @@
 														},
 														"objectType": {
 															"type": "reference",
-															"id": 53,
-															"name": "parserMap"
+															"id": 46,
+															"name": "parserRule"
 														}
 													}
 												},
 												{
-													"id": 76,
+													"id": 71,
 													"name": "callback",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -474,7 +551,7 @@
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 77,
+															"id": 72,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
@@ -483,12 +560,13 @@
 																{
 																	"fileName": "index.ts",
 																	"line": 20,
-																	"character": 190
+																	"character": 194,
+																	"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L20"
 																}
 															],
 															"signatures": [
 																{
-																	"id": 78,
+																	"id": 73,
 																	"name": "__type",
 																	"kind": 4096,
 																	"kindString": "Call signature",
@@ -515,7 +593,7 @@
 					}
 				},
 				{
-					"id": 92,
+					"id": 87,
 					"name": "get",
 					"kind": 2048,
 					"kindString": "Method",
@@ -525,13 +603,14 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 81,
-							"character": 11
+							"line": 88,
+							"character": 11,
+							"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L88"
 						}
 					],
 					"signatures": [
 						{
-							"id": 93,
+							"id": 88,
 							"name": "get",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -557,7 +636,7 @@
 							},
 							"typeParameter": [
 								{
-									"id": 94,
+									"id": 89,
 									"name": "PropertyNames",
 									"kind": 131072,
 									"kindString": "Type parameter",
@@ -578,8 +657,8 @@
 														},
 														"objectType": {
 															"type": "reference",
-															"id": 53,
-															"name": "parserMap"
+															"id": 46,
+															"name": "parserRule"
 														}
 													}
 												},
@@ -597,7 +676,7 @@
 							],
 							"parameters": [
 								{
-									"id": 95,
+									"id": 90,
 									"name": "value",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -618,13 +697,13 @@
 										},
 										"objectType": {
 											"type": "reference",
-											"id": 53,
-											"name": "parserMap"
+											"id": 46,
+											"name": "parserRule"
 										}
 									}
 								},
 								{
-									"id": 96,
+									"id": 91,
 									"name": "propertyNames",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -641,7 +720,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"id": 94,
+										"id": 89,
 										"name": "PropertyNames"
 									}
 								}
@@ -650,7 +729,7 @@
 								"type": "conditional",
 								"checkType": {
 									"type": "reference",
-									"id": 94,
+									"id": 89,
 									"name": "PropertyNames"
 								},
 								"extendsType": {
@@ -664,8 +743,8 @@
 									},
 									"objectType": {
 										"type": "reference",
-										"id": 53,
-										"name": "parserMap"
+										"id": 46,
+										"name": "parserRule"
 									}
 								},
 								"falseType": {
@@ -679,8 +758,8 @@
 											},
 											"objectType": {
 												"type": "reference",
-												"id": 53,
-												"name": "parserMap"
+												"id": 46,
+												"name": "parserRule"
 											}
 										},
 										{
@@ -691,7 +770,7 @@
 											},
 											"objectType": {
 												"type": "reference",
-												"id": 94,
+												"id": 89,
 												"name": "PropertyNames"
 											}
 										}
@@ -705,7 +784,7 @@
 					]
 				},
 				{
-					"id": 60,
+					"id": 55,
 					"name": "initGetters",
 					"kind": 2048,
 					"kindString": "Method",
@@ -715,20 +794,21 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 55,
-							"character": 14
+							"line": 62,
+							"character": 14,
+							"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L62"
 						}
 					],
 					"signatures": [
 						{
-							"id": 61,
+							"id": 56,
 							"name": "initGetters",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"typeParameter": [
 								{
-									"id": 66,
+									"id": 61,
 									"name": "T",
 									"kind": 131072,
 									"kindString": "Type parameter",
@@ -756,7 +836,7 @@
 										"templateType": {
 											"type": "reflection",
 											"declaration": {
-												"id": 62,
+												"id": 57,
 												"name": "__type",
 												"kind": 65536,
 												"kindString": "Type literal",
@@ -765,19 +845,20 @@
 													{
 														"fileName": "index.ts",
 														"line": 19,
-														"character": 59
+														"character": 60,
+														"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L19"
 													}
 												],
 												"signatures": [
 													{
-														"id": 63,
+														"id": 58,
 														"name": "__type",
 														"kind": 4096,
 														"kindString": "Call signature",
 														"flags": {},
 														"parameters": [
 															{
-																"id": 64,
+																"id": 59,
 																"name": "value",
 																"kind": 32768,
 																"kindString": "Parameter",
@@ -790,13 +871,13 @@
 																	},
 																	"objectType": {
 																		"type": "reference",
-																		"id": 53,
-																		"name": "parserMap"
+																		"id": 46,
+																		"name": "parserRule"
 																	}
 																}
 															},
 															{
-																"id": 65,
+																"id": 60,
 																"name": "propertyName",
 																"kind": 32768,
 																"kindString": "Parameter",
@@ -821,8 +902,8 @@
 																},
 																"objectType": {
 																	"type": "reference",
-																	"id": 53,
-																	"name": "parserMap"
+																	"id": 46,
+																	"name": "parserRule"
 																}
 															}
 														}
@@ -835,28 +916,28 @@
 							],
 							"parameters": [
 								{
-									"id": 67,
+									"id": 62,
 									"name": "getterDescription",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 66,
+										"id": 61,
 										"name": "T"
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 66,
+								"id": 61,
 								"name": "T"
 							}
 						}
 					]
 				},
 				{
-					"id": 79,
+					"id": 74,
 					"name": "initSetters",
 					"kind": 2048,
 					"kindString": "Method",
@@ -866,20 +947,21 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 66,
-							"character": 14
+							"line": 73,
+							"character": 14,
+							"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L73"
 						}
 					],
 					"signatures": [
 						{
-							"id": 80,
+							"id": 75,
 							"name": "initSetters",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"typeParameter": [
 								{
-									"id": 90,
+									"id": 85,
 									"name": "T",
 									"kind": 131072,
 									"kindString": "Type parameter",
@@ -907,7 +989,7 @@
 										"templateType": {
 											"type": "reflection",
 											"declaration": {
-												"id": 81,
+												"id": 76,
 												"name": "__type",
 												"kind": 65536,
 												"kindString": "Type literal",
@@ -916,19 +998,20 @@
 													{
 														"fileName": "index.ts",
 														"line": 20,
-														"character": 59
+														"character": 60,
+														"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L20"
 													}
 												],
 												"signatures": [
 													{
-														"id": 82,
+														"id": 77,
 														"name": "__type",
 														"kind": 4096,
 														"kindString": "Call signature",
 														"flags": {},
 														"parameters": [
 															{
-																"id": 83,
+																"id": 78,
 																"name": "value",
 																"kind": 32768,
 																"kindString": "Parameter",
@@ -941,13 +1024,13 @@
 																	},
 																	"objectType": {
 																		"type": "reference",
-																		"id": 53,
-																		"name": "parserMap"
+																		"id": 46,
+																		"name": "parserRule"
 																	}
 																}
 															},
 															{
-																"id": 84,
+																"id": 79,
 																"name": "targetValue",
 																"kind": 32768,
 																"kindString": "Parameter",
@@ -966,14 +1049,14 @@
 																		},
 																		"objectType": {
 																			"type": "reference",
-																			"id": 53,
-																			"name": "parserMap"
+																			"id": 46,
+																			"name": "parserRule"
 																		}
 																	}
 																}
 															},
 															{
-																"id": 85,
+																"id": 80,
 																"name": "propertyName",
 																"kind": 32768,
 																"kindString": "Parameter",
@@ -986,7 +1069,7 @@
 																}
 															},
 															{
-																"id": 86,
+																"id": 81,
 																"name": "exData",
 																"kind": 32768,
 																"kindString": "Parameter",
@@ -1001,13 +1084,13 @@
 																	},
 																	"objectType": {
 																		"type": "reference",
-																		"id": 53,
-																		"name": "parserMap"
+																		"id": 46,
+																		"name": "parserRule"
 																	}
 																}
 															},
 															{
-																"id": 87,
+																"id": 82,
 																"name": "callback",
 																"kind": 32768,
 																"kindString": "Parameter",
@@ -1017,7 +1100,7 @@
 																"type": {
 																	"type": "reflection",
 																	"declaration": {
-																		"id": 88,
+																		"id": 83,
 																		"name": "__type",
 																		"kind": 65536,
 																		"kindString": "Type literal",
@@ -1026,12 +1109,13 @@
 																			{
 																				"fileName": "index.ts",
 																				"line": 20,
-																				"character": 190
+																				"character": 194,
+																				"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L20"
 																			}
 																		],
 																		"signatures": [
 																			{
-																				"id": 89,
+																				"id": 84,
 																				"name": "__type",
 																				"kind": 4096,
 																				"kindString": "Call signature",
@@ -1059,28 +1143,28 @@
 							],
 							"parameters": [
 								{
-									"id": 91,
+									"id": 86,
 									"name": "setterDescription",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 90,
+										"id": 85,
 										"name": "T"
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 90,
+								"id": 85,
 								"name": "T"
 							}
 						}
 					]
 				},
 				{
-					"id": 97,
+					"id": 92,
 					"name": "set",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1090,13 +1174,14 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 119,
-							"character": 11
+							"line": 126,
+							"character": 11,
+							"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L126"
 						}
 					],
 					"signatures": [
 						{
-							"id": 98,
+							"id": 93,
 							"name": "set",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1111,7 +1196,7 @@
 							},
 							"parameters": [
 								{
-									"id": 99,
+									"id": 94,
 									"name": "value",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1132,13 +1217,13 @@
 										},
 										"objectType": {
 											"type": "reference",
-											"id": 53,
-											"name": "parserMap"
+											"id": 46,
+											"name": "parserRule"
 										}
 									}
 								},
 								{
-									"id": 100,
+									"id": 95,
 									"name": "partialTargetData",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1162,8 +1247,8 @@
 												},
 												"objectType": {
 													"type": "reference",
-													"id": 53,
-													"name": "parserMap"
+													"id": 46,
+													"name": "parserRule"
 												}
 											}
 										],
@@ -1173,7 +1258,7 @@
 									}
 								},
 								{
-									"id": 101,
+									"id": 96,
 									"name": "extras",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1191,14 +1276,14 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 102,
+											"id": 97,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"children": [
 												{
-													"id": 104,
+													"id": 99,
 													"name": "callback",
 													"kind": 1024,
 													"kindString": "Property",
@@ -1208,14 +1293,15 @@
 													"sources": [
 														{
 															"fileName": "index.ts",
-															"line": 119,
-															"character": 152
+															"line": 126,
+															"character": 155,
+															"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L126"
 														}
 													],
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 105,
+															"id": 100,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
@@ -1223,13 +1309,14 @@
 															"sources": [
 																{
 																	"fileName": "index.ts",
-																	"line": 119,
-																	"character": 163
+																	"line": 126,
+																	"character": 166,
+																	"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L126"
 																}
 															],
 															"signatures": [
 																{
-																	"id": 106,
+																	"id": 101,
 																	"name": "__type",
 																	"kind": 4096,
 																	"kindString": "Call signature",
@@ -1244,7 +1331,7 @@
 													}
 												},
 												{
-													"id": 103,
+													"id": 98,
 													"name": "exData",
 													"kind": 1024,
 													"kindString": "Property",
@@ -1254,8 +1341,9 @@
 													"sources": [
 														{
 															"fileName": "index.ts",
-															"line": 119,
-															"character": 118
+															"line": 126,
+															"character": 120,
+															"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L126"
 														}
 													],
 													"type": {
@@ -1266,8 +1354,8 @@
 														},
 														"objectType": {
 															"type": "reference",
-															"id": 53,
-															"name": "parserMap"
+															"id": 46,
+															"name": "parserRule"
 														}
 													}
 												}
@@ -1276,16 +1364,17 @@
 												{
 													"title": "Properties",
 													"children": [
-														104,
-														103
+														99,
+														98
 													]
 												}
 											],
 											"sources": [
 												{
 													"fileName": "index.ts",
-													"line": 119,
-													"character": 116
+													"line": 126,
+													"character": 118,
+													"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L126"
 												}
 											]
 										}
@@ -1304,30 +1393,31 @@
 				{
 					"title": "Constructors",
 					"children": [
-						51
+						44
 					]
 				},
 				{
 					"title": "Properties",
 					"children": [
-						49,
-						50
+						48,
+						42,
+						43
 					]
 				},
 				{
 					"title": "Accessors",
 					"children": [
-						54,
-						68
+						49,
+						63
 					]
 				},
 				{
 					"title": "Methods",
 					"children": [
-						92,
-						60,
-						79,
-						97
+						87,
+						55,
+						74,
+						92
 					]
 				}
 			],
@@ -1335,26 +1425,27 @@
 				{
 					"fileName": "index.ts",
 					"line": 50,
-					"character": 22
+					"character": 22,
+					"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L50"
 				}
 			],
 			"typeParameters": [
 				{
-					"id": 107,
-					"name": "parserMap",
+					"id": 102,
+					"name": "parserRule",
 					"kind": 131072,
 					"kindString": "Type parameter",
 					"flags": {},
 					"type": {
 						"type": "reference",
-						"id": 8,
-						"name": "ParserMap"
+						"id": 1,
+						"name": "ParserRule"
 					}
 				}
 			]
 		},
 		{
-			"id": 120,
+			"id": 110,
 			"name": "ParserHelperBase",
 			"kind": 128,
 			"kindString": "Class",
@@ -1363,7 +1454,7 @@
 			},
 			"children": [
 				{
-					"id": 125,
+					"id": 111,
 					"name": "constructor",
 					"kind": 512,
 					"kindString": "Constructor",
@@ -1371,13 +1462,14 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 191,
-							"character": 4
+							"line": 177,
+							"character": 4,
+							"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L177"
 						}
 					],
 					"signatures": [
 						{
-							"id": 126,
+							"id": 112,
 							"name": "new ParserHelperBase",
 							"kind": 16384,
 							"kindString": "Constructor signature",
@@ -1392,8 +1484,8 @@
 							},
 							"typeParameter": [
 								{
-									"id": 127,
-									"name": "Maps",
+									"id": 113,
+									"name": "Rules",
 									"kind": 131072,
 									"kindString": "Type parameter",
 									"flags": {},
@@ -1401,7 +1493,7 @@
 										"type": "array",
 										"elementType": {
 											"type": "reference",
-											"id": 8,
+											"id": 1,
 											"typeArguments": [
 												{
 													"type": "reference",
@@ -1427,11 +1519,11 @@
 												},
 												{
 													"type": "intrinsic",
-													"name": "unknown"
+													"name": "any"
 												},
 												{
 													"type": "reference",
-													"id": 48,
+													"id": 41,
 													"typeArguments": [
 														{
 															"type": "intrinsic",
@@ -1441,15 +1533,15 @@
 													"name": "DataParserBase"
 												}
 											],
-											"name": "ParserMap"
+											"name": "ParserRule"
 										}
 									}
 								}
 							],
 							"parameters": [
 								{
-									"id": 128,
-									"name": "maps",
+									"id": 114,
+									"name": "parsers",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {
@@ -1459,34 +1551,42 @@
 										"type": "array",
 										"elementType": {
 											"type": "reference",
-											"id": 108,
 											"typeArguments": [
 												{
 													"type": "indexedAccess",
 													"indexType": {
-														"type": "intrinsic",
-														"name": "number"
+														"type": "literal",
+														"value": "parserType"
 													},
 													"objectType": {
-														"type": "reference",
-														"id": 127,
-														"name": "Maps"
+														"type": "indexedAccess",
+														"indexType": {
+															"type": "intrinsic",
+															"name": "number"
+														},
+														"objectType": {
+															"type": "reference",
+															"id": 113,
+															"name": "Rules"
+														}
 													}
 												}
 											],
-											"name": "MapInstanceType"
+											"name": "InstanceType",
+											"qualifiedName": "InstanceType",
+											"package": "typescript"
 										}
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 120,
+								"id": 110,
 								"typeArguments": [
 									{
 										"type": "reference",
-										"id": 127,
-										"name": "Maps"
+										"id": 113,
+										"name": "Rules"
 									}
 								],
 								"name": "ParserHelperBase"
@@ -1495,8 +1595,8 @@
 					]
 				},
 				{
-					"id": 129,
-					"name": "parserCreated",
+					"id": 115,
+					"name": "parserRules",
 					"kind": 1024,
 					"kindString": "Property",
 					"flags": {
@@ -1506,77 +1606,16 @@
 						"summary": [
 							{
 								"kind": "text",
-								"text": "the parser created,use to cache"
+								"text": "parser rules that is registed to the helper"
 							}
 						]
 					},
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 184,
-							"character": 14
-						}
-					],
-					"type": {
-						"type": "reference",
-						"typeArguments": [
-							{
-								"type": "reference",
-								"typeArguments": [
-									{
-										"type": "reference",
-										"id": 48,
-										"typeArguments": [
-											{
-												"type": "intrinsic",
-												"name": "any"
-											}
-										],
-										"name": "DataParserBase"
-									}
-								],
-								"name": "ConstructorType"
-							},
-							{
-								"type": "reference",
-								"id": 48,
-								"typeArguments": [
-									{
-										"type": "intrinsic",
-										"name": "any"
-									}
-								],
-								"name": "DataParserBase"
-							}
-						],
-						"name": "Map",
-						"qualifiedName": "Map",
-						"package": "typescript"
-					},
-					"defaultValue": "..."
-				},
-				{
-					"id": 121,
-					"name": "parserMaps",
-					"kind": 1024,
-					"kindString": "Property",
-					"flags": {
-						"isProtected": true,
-						"isStatic": true
-					},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "parser map that is registed to the helper"
-							}
-						]
-					},
-					"sources": [
-						{
-							"fileName": "index.ts",
-							"line": 180,
-							"character": 21
+							"line": 171,
+							"character": 14,
+							"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L171"
 						}
 					],
 					"type": {
@@ -1593,20 +1632,14 @@
 								"typeArguments": [
 									{
 										"type": "reference",
+										"id": 41,
 										"typeArguments": [
 											{
-												"type": "reference",
-												"id": 48,
-												"typeArguments": [
-													{
-														"type": "intrinsic",
-														"name": "any"
-													}
-												],
-												"name": "DataParserBase"
+												"type": "intrinsic",
+												"name": "any"
 											}
 										],
-										"name": "ConstructorType"
+										"name": "DataParserBase"
 									}
 								],
 								"name": "Set",
@@ -1621,7 +1654,7 @@
 					"defaultValue": "..."
 				},
 				{
-					"id": 136,
+					"id": 122,
 					"name": "get",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1631,13 +1664,14 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 265,
-							"character": 11
+							"line": 222,
+							"character": 11,
+							"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L222"
 						}
 					],
 					"signatures": [
 						{
-							"id": 137,
+							"id": 123,
 							"name": "get",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1663,7 +1697,7 @@
 							},
 							"typeParameter": [
 								{
-									"id": 138,
+									"id": 124,
 									"name": "T",
 									"kind": 131072,
 									"kindString": "Type parameter",
@@ -1676,7 +1710,7 @@
 									}
 								},
 								{
-									"id": 139,
+									"id": 125,
 									"name": "U",
 									"kind": 131072,
 									"kindString": "Type parameter",
@@ -1694,12 +1728,12 @@
 														"typeArguments": [
 															{
 																"type": "reference",
-																"id": 127,
-																"name": "Maps"
+																"id": 113,
+																"name": "Rules"
 															},
 															{
 																"type": "reference",
-																"id": 138,
+																"id": 124,
 																"name": "T"
 															}
 														],
@@ -1720,7 +1754,7 @@
 							],
 							"parameters": [
 								{
-									"id": 140,
+									"id": 126,
 									"name": "value",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1735,12 +1769,12 @@
 									},
 									"type": {
 										"type": "reference",
-										"id": 138,
+										"id": 124,
 										"name": "T"
 									}
 								},
 								{
-									"id": 141,
+									"id": 127,
 									"name": "propertyNames",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1757,7 +1791,7 @@
 									},
 									"type": {
 										"type": "reference",
-										"id": 139,
+										"id": 125,
 										"name": "U"
 									}
 								}
@@ -1766,7 +1800,7 @@
 								"type": "conditional",
 								"checkType": {
 									"type": "reference",
-									"id": 139,
+									"id": 125,
 									"name": "U"
 								},
 								"extendsType": {
@@ -1777,12 +1811,12 @@
 									"typeArguments": [
 										{
 											"type": "reference",
-											"id": 127,
-											"name": "Maps"
+											"id": 113,
+											"name": "Rules"
 										},
 										{
 											"type": "reference",
-											"id": 138,
+											"id": 124,
 											"name": "T"
 										}
 									],
@@ -1796,12 +1830,12 @@
 											"typeArguments": [
 												{
 													"type": "reference",
-													"id": 127,
-													"name": "Maps"
+													"id": 113,
+													"name": "Rules"
 												},
 												{
 													"type": "reference",
-													"id": 138,
+													"id": 124,
 													"name": "T"
 												}
 											],
@@ -1815,7 +1849,7 @@
 											},
 											"objectType": {
 												"type": "reference",
-												"id": 139,
+												"id": 125,
 												"name": "U"
 											}
 										}
@@ -1829,7 +1863,7 @@
 					]
 				},
 				{
-					"id": 130,
+					"id": 116,
 					"name": "getParser",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1839,13 +1873,14 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 220,
-							"character": 11
+							"line": 197,
+							"character": 11,
+							"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L197"
 						}
 					],
 					"signatures": [
 						{
-							"id": 131,
+							"id": 117,
 							"name": "getParser",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1871,7 +1906,7 @@
 							},
 							"typeParameter": [
 								{
-									"id": 132,
+									"id": 118,
 									"name": "T",
 									"kind": 131072,
 									"kindString": "Type parameter",
@@ -1884,14 +1919,14 @@
 									}
 								},
 								{
-									"id": 133,
+									"id": 119,
 									"name": "U",
 									"kind": 131072,
 									"kindString": "Type parameter",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 48,
+										"id": 41,
 										"typeArguments": [
 											{
 												"type": "intrinsic",
@@ -1899,7 +1934,7 @@
 											},
 											{
 												"type": "reference",
-												"id": 133,
+												"id": 119,
 												"name": "U"
 											}
 										],
@@ -1913,7 +1948,7 @@
 							],
 							"parameters": [
 								{
-									"id": 134,
+									"id": 120,
 									"name": "value",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1928,12 +1963,12 @@
 									},
 									"type": {
 										"type": "reference",
-										"id": 132,
+										"id": 118,
 										"name": "T"
 									}
 								},
 								{
-									"id": 135,
+									"id": 121,
 									"name": "parserType",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1953,7 +1988,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 133,
+												"id": 119,
 												"name": "U"
 											}
 										],
@@ -1965,7 +2000,7 @@
 								"type": "conditional",
 								"checkType": {
 									"type": "reference",
-									"id": 133,
+									"id": 119,
 									"name": "U"
 								},
 								"extendsType": {
@@ -1983,20 +2018,20 @@
 											},
 											"objectType": {
 												"type": "reference",
-												"id": 115,
+												"id": 105,
 												"typeArguments": [
 													{
 														"type": "reference",
-														"id": 127,
-														"name": "Maps"
+														"id": 113,
+														"name": "Rules"
 													},
 													{
 														"type": "reference",
-														"id": 132,
+														"id": 118,
 														"name": "T"
 													}
 												],
-												"name": "GetParserByMaps"
+												"name": "GetParserByRules"
 											}
 										}
 									],
@@ -2018,20 +2053,20 @@
 													},
 													"objectType": {
 														"type": "reference",
-														"id": 115,
+														"id": 105,
 														"typeArguments": [
 															{
 																"type": "reference",
-																"id": 127,
-																"name": "Maps"
+																"id": 113,
+																"name": "Rules"
 															},
 															{
 																"type": "reference",
-																"id": 132,
+																"id": 118,
 																"name": "T"
 															}
 														],
-														"name": "GetParserByMaps"
+														"name": "GetParserByRules"
 													}
 												}
 											],
@@ -2041,7 +2076,7 @@
 										},
 										{
 											"type": "reference",
-											"id": 133,
+											"id": 119,
 											"name": "U"
 										}
 									],
@@ -2054,7 +2089,7 @@
 					]
 				},
 				{
-					"id": 142,
+					"id": 128,
 					"name": "set",
 					"kind": 2048,
 					"kindString": "Method",
@@ -2064,13 +2099,14 @@
 					"sources": [
 						{
 							"fileName": "index.ts",
-							"line": 283,
-							"character": 11
+							"line": 234,
+							"character": 11,
+							"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L234"
 						}
 					],
 					"signatures": [
 						{
-							"id": 143,
+							"id": 129,
 							"name": "set",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2085,7 +2121,7 @@
 							},
 							"typeParameter": [
 								{
-									"id": 144,
+									"id": 130,
 									"name": "T",
 									"kind": 131072,
 									"kindString": "Type parameter",
@@ -2100,7 +2136,7 @@
 							],
 							"parameters": [
 								{
-									"id": 145,
+									"id": 131,
 									"name": "value",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2115,12 +2151,12 @@
 									},
 									"type": {
 										"type": "reference",
-										"id": 144,
+										"id": 130,
 										"name": "T"
 									}
 								},
 								{
-									"id": 146,
+									"id": 132,
 									"name": "partialTargetData",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2141,12 +2177,12 @@
 												"typeArguments": [
 													{
 														"type": "reference",
-														"id": 127,
-														"name": "Maps"
+														"id": 113,
+														"name": "Rules"
 													},
 													{
 														"type": "reference",
-														"id": 144,
+														"id": 130,
 														"name": "T"
 													}
 												],
@@ -2159,7 +2195,7 @@
 									}
 								},
 								{
-									"id": 147,
+									"id": 133,
 									"name": "extras",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2177,14 +2213,14 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 148,
+											"id": 134,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"children": [
 												{
-													"id": 150,
+													"id": 136,
 													"name": "callback",
 													"kind": 1024,
 													"kindString": "Property",
@@ -2194,14 +2230,15 @@
 													"sources": [
 														{
 															"fileName": "index.ts",
-															"line": 283,
-															"character": 144
+															"line": 234,
+															"character": 146,
+															"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L234"
 														}
 													],
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 151,
+															"id": 137,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
@@ -2209,13 +2246,14 @@
 															"sources": [
 																{
 																	"fileName": "index.ts",
-																	"line": 283,
-																	"character": 155
+																	"line": 234,
+																	"character": 157,
+																	"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L234"
 																}
 															],
 															"signatures": [
 																{
-																	"id": 152,
+																	"id": 138,
 																	"name": "__type",
 																	"kind": 4096,
 																	"kindString": "Call signature",
@@ -2230,7 +2268,7 @@
 													}
 												},
 												{
-													"id": 149,
+													"id": 135,
 													"name": "exData",
 													"kind": 1024,
 													"kindString": "Property",
@@ -2240,8 +2278,9 @@
 													"sources": [
 														{
 															"fileName": "index.ts",
-															"line": 283,
-															"character": 130
+															"line": 234,
+															"character": 132,
+															"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L234"
 														}
 													],
 													"type": {
@@ -2254,85 +2293,20 @@
 												{
 													"title": "Properties",
 													"children": [
-														150,
-														149
+														136,
+														135
 													]
 												}
 											],
 											"sources": [
 												{
 													"fileName": "index.ts",
-													"line": 283,
-													"character": 128
+													"line": 234,
+													"character": 130,
+													"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L234"
 												}
 											]
 										}
-									}
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "void"
-							}
-						}
-					]
-				},
-				{
-					"id": 122,
-					"name": "registerMap",
-					"kind": 2048,
-					"kindString": "Method",
-					"flags": {
-						"isPublic": true,
-						"isStatic": true
-					},
-					"sources": [
-						{
-							"fileName": "index.ts",
-							"line": 203,
-							"character": 18
-						}
-					],
-					"signatures": [
-						{
-							"id": 123,
-							"name": "registerMap",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"summary": [
-									{
-										"kind": "text",
-										"text": "add parser map to helper to registe"
-									}
-								]
-							},
-							"parameters": [
-								{
-									"id": 124,
-									"name": "map",
-									"kind": 32768,
-									"kindString": "Parameter",
-									"flags": {},
-									"comment": {
-										"summary": [
-											{
-												"kind": "text",
-												"text": "parser map to add"
-											}
-										]
-									},
-									"type": {
-										"type": "reference",
-										"id": 108,
-										"typeArguments": [
-											{
-												"type": "intrinsic",
-												"name": "any"
-											}
-										],
-										"name": "MapInstanceType"
 									}
 								}
 							],
@@ -2348,37 +2322,36 @@
 				{
 					"title": "Constructors",
 					"children": [
-						125
+						111
 					]
 				},
 				{
 					"title": "Properties",
 					"children": [
-						129,
-						121
+						115
 					]
 				},
 				{
 					"title": "Methods",
 					"children": [
-						136,
-						130,
-						142,
-						122
+						122,
+						116,
+						128
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "index.ts",
-					"line": 175,
-					"character": 22
+					"line": 166,
+					"character": 22,
+					"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L166"
 				}
 			],
 			"typeParameters": [
 				{
-					"id": 153,
-					"name": "Maps",
+					"id": 139,
+					"name": "Rules",
 					"kind": 131072,
 					"kindString": "Type parameter",
 					"flags": {},
@@ -2386,15 +2359,15 @@
 						"type": "array",
 						"elementType": {
 							"type": "reference",
-							"id": 8,
-							"name": "ParserMap"
+							"id": 1,
+							"name": "ParserRule"
 						}
 					}
 				}
 			]
 		},
 		{
-			"id": 18,
+			"id": 11,
 			"name": "IDataParser",
 			"kind": 256,
 			"kindString": "Interface",
@@ -2403,13 +2376,13 @@
 				"summary": [
 					{
 						"kind": "text",
-						"text": "data parser interface"
+						"text": "data parser interface,implements this interface to ensure we have getters and setters been set properly"
 					}
 				]
 			},
 			"children": [
 				{
-					"id": 19,
+					"id": 12,
 					"name": "propertyGetters",
 					"kind": 1024,
 					"kindString": "Property",
@@ -2418,7 +2391,8 @@
 						{
 							"fileName": "index.ts",
 							"line": 19,
-							"character": 4
+							"character": 4,
+							"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L19"
 						}
 					],
 					"type": {
@@ -2444,7 +2418,7 @@
 						"templateType": {
 							"type": "reflection",
 							"declaration": {
-								"id": 20,
+								"id": 13,
 								"name": "__type",
 								"kind": 65536,
 								"kindString": "Type literal",
@@ -2453,19 +2427,20 @@
 									{
 										"fileName": "index.ts",
 										"line": 19,
-										"character": 59
+										"character": 60,
+										"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L19"
 									}
 								],
 								"signatures": [
 									{
-										"id": 21,
+										"id": 14,
 										"name": "__type",
 										"kind": 4096,
 										"kindString": "Call signature",
 										"flags": {},
 										"parameters": [
 											{
-												"id": 22,
+												"id": 15,
 												"name": "value",
 												"kind": 32768,
 												"kindString": "Parameter",
@@ -2478,13 +2453,13 @@
 													},
 													"objectType": {
 														"type": "reference",
-														"id": 34,
-														"name": "Map"
+														"id": 27,
+														"name": "Rule"
 													}
 												}
 											},
 											{
-												"id": 23,
+												"id": 16,
 												"name": "propertyName",
 												"kind": 32768,
 												"kindString": "Parameter",
@@ -2509,8 +2484,8 @@
 												},
 												"objectType": {
 													"type": "reference",
-													"id": 34,
-													"name": "Map"
+													"id": 27,
+													"name": "Rule"
 												}
 											}
 										}
@@ -2521,7 +2496,7 @@
 					}
 				},
 				{
-					"id": 24,
+					"id": 17,
 					"name": "propertySetters",
 					"kind": 1024,
 					"kindString": "Property",
@@ -2530,7 +2505,8 @@
 						{
 							"fileName": "index.ts",
 							"line": 20,
-							"character": 4
+							"character": 4,
+							"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L20"
 						}
 					],
 					"type": {
@@ -2556,7 +2532,7 @@
 						"templateType": {
 							"type": "reflection",
 							"declaration": {
-								"id": 25,
+								"id": 18,
 								"name": "__type",
 								"kind": 65536,
 								"kindString": "Type literal",
@@ -2565,19 +2541,20 @@
 									{
 										"fileName": "index.ts",
 										"line": 20,
-										"character": 59
+										"character": 60,
+										"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L20"
 									}
 								],
 								"signatures": [
 									{
-										"id": 26,
+										"id": 19,
 										"name": "__type",
 										"kind": 4096,
 										"kindString": "Call signature",
 										"flags": {},
 										"parameters": [
 											{
-												"id": 27,
+												"id": 20,
 												"name": "value",
 												"kind": 32768,
 												"kindString": "Parameter",
@@ -2590,13 +2567,13 @@
 													},
 													"objectType": {
 														"type": "reference",
-														"id": 34,
-														"name": "Map"
+														"id": 27,
+														"name": "Rule"
 													}
 												}
 											},
 											{
-												"id": 28,
+												"id": 21,
 												"name": "targetValue",
 												"kind": 32768,
 												"kindString": "Parameter",
@@ -2615,14 +2592,14 @@
 														},
 														"objectType": {
 															"type": "reference",
-															"id": 34,
-															"name": "Map"
+															"id": 27,
+															"name": "Rule"
 														}
 													}
 												}
 											},
 											{
-												"id": 29,
+												"id": 22,
 												"name": "propertyName",
 												"kind": 32768,
 												"kindString": "Parameter",
@@ -2635,7 +2612,7 @@
 												}
 											},
 											{
-												"id": 30,
+												"id": 23,
 												"name": "exData",
 												"kind": 32768,
 												"kindString": "Parameter",
@@ -2650,13 +2627,13 @@
 													},
 													"objectType": {
 														"type": "reference",
-														"id": 34,
-														"name": "Map"
+														"id": 27,
+														"name": "Rule"
 													}
 												}
 											},
 											{
-												"id": 31,
+												"id": 24,
 												"name": "callback",
 												"kind": 32768,
 												"kindString": "Parameter",
@@ -2666,7 +2643,7 @@
 												"type": {
 													"type": "reflection",
 													"declaration": {
-														"id": 32,
+														"id": 25,
 														"name": "__type",
 														"kind": 65536,
 														"kindString": "Type literal",
@@ -2675,12 +2652,13 @@
 															{
 																"fileName": "index.ts",
 																"line": 20,
-																"character": 190
+																"character": 194,
+																"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L20"
 															}
 														],
 														"signatures": [
 															{
-																"id": 33,
+																"id": 26,
 																"name": "__type",
 																"kind": 4096,
 																"kindString": "Call signature",
@@ -2710,8 +2688,8 @@
 				{
 					"title": "Properties",
 					"children": [
-						19,
-						24
+						12,
+						17
 					]
 				}
 			],
@@ -2719,27 +2697,28 @@
 				{
 					"fileName": "index.ts",
 					"line": 17,
-					"character": 17
+					"character": 17,
+					"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L17"
 				}
 			],
 			"typeParameters": [
 				{
-					"id": 34,
-					"name": "Map",
+					"id": 27,
+					"name": "Rule",
 					"kind": 131072,
 					"kindString": "Type parameter",
 					"flags": {},
 					"type": {
 						"type": "reference",
-						"id": 8,
-						"name": "ParserMap"
+						"id": 1,
+						"name": "ParserRule"
 					}
 				}
 			]
 		},
 		{
-			"id": 115,
-			"name": "GetParserByMaps",
+			"id": 105,
+			"name": "GetParserByRules",
 			"kind": 4194304,
 			"kindString": "Type alias",
 			"flags": {},
@@ -2756,7 +2735,7 @@
 						"content": [
 							{
 								"kind": "code",
-								"text": "```ts\n// get parser type\r\ntype parserType = GetParserByMaps<ParserMaps,A>; // which will be AParser\n```"
+								"text": "```ts\n// get parser type\r\ntype parserType = GetParserByRules<ParserRules,A>; // which will be AParser\n```"
 							}
 						]
 					}
@@ -2765,14 +2744,15 @@
 			"sources": [
 				{
 					"fileName": "index.ts",
-					"line": 157,
-					"character": 12
+					"line": 159,
+					"character": 12,
+					"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L159"
 				}
 			],
 			"typeParameters": [
 				{
-					"id": 118,
-					"name": "Maps",
+					"id": 108,
+					"name": "Rules",
 					"kind": 131072,
 					"kindString": "Type parameter",
 					"flags": {},
@@ -2780,13 +2760,13 @@
 						"type": "array",
 						"elementType": {
 							"type": "reference",
-							"id": 8,
-							"name": "ParserMap"
+							"id": 1,
+							"name": "ParserRule"
 						}
 					}
 				},
 				{
-					"id": 119,
+					"id": 109,
 					"name": "OriObjectType",
 					"kind": 131072,
 					"kindString": "Type parameter",
@@ -2809,8 +2789,8 @@
 							"operator": "keyof",
 							"target": {
 								"type": "reference",
-								"id": 118,
-								"name": "Maps"
+								"id": 108,
+								"name": "Rules"
 							}
 						},
 						"templateType": {
@@ -2823,21 +2803,21 @@
 								},
 								"objectType": {
 									"type": "reference",
-									"id": 118,
-									"name": "Maps"
+									"id": 108,
+									"name": "Rules"
 								}
 							},
 							"extendsType": {
 								"type": "reflection",
 								"declaration": {
-									"id": 116,
+									"id": 106,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"children": [
 										{
-											"id": 117,
+											"id": 107,
 											"name": "oriObjectType",
 											"kind": 1024,
 											"kindString": "Property",
@@ -2845,13 +2825,14 @@
 											"sources": [
 												{
 													"fileName": "index.ts",
-													"line": 158,
-													"character": 45
+													"line": 160,
+													"character": 47,
+													"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L160"
 												}
 											],
 											"type": {
 												"type": "reference",
-												"id": 119,
+												"id": 109,
 												"name": "OriObjectType"
 											}
 										}
@@ -2860,15 +2841,16 @@
 										{
 											"title": "Properties",
 											"children": [
-												117
+												107
 											]
 										}
 									],
 									"sources": [
 										{
 											"fileName": "index.ts",
-											"line": 158,
-											"character": 43
+											"line": 160,
+											"character": 45,
+											"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L160"
 										}
 									]
 								}
@@ -2886,14 +2868,14 @@
 				},
 				"objectType": {
 					"type": "reference",
-					"id": 118,
-					"name": "Maps"
+					"id": 108,
+					"name": "Rules"
 				}
 			}
 		},
 		{
-			"id": 108,
-			"name": "MapInstanceType",
+			"id": 1,
+			"name": "ParserRule",
 			"kind": 4194304,
 			"kindString": "Type alias",
 			"flags": {},
@@ -2901,129 +2883,7 @@
 				"summary": [
 					{
 						"kind": "text",
-						"text": "this type is used to registe parserHelper"
-					}
-				]
-			},
-			"sources": [
-				{
-					"fileName": "index.ts",
-					"line": 139,
-					"character": 12
-				}
-			],
-			"typeParameters": [
-				{
-					"id": 112,
-					"name": "Map",
-					"kind": 131072,
-					"kindString": "Type parameter",
-					"flags": {},
-					"type": {
-						"type": "reference",
-						"id": 8,
-						"name": "ParserMap"
-					}
-				}
-			],
-			"type": {
-				"type": "reflection",
-				"declaration": {
-					"id": 109,
-					"name": "__type",
-					"kind": 65536,
-					"kindString": "Type literal",
-					"flags": {},
-					"children": [
-						{
-							"id": 110,
-							"name": "oriObjectType",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {},
-							"sources": [
-								{
-									"fileName": "index.ts",
-									"line": 139,
-									"character": 55
-								}
-							],
-							"type": {
-								"type": "reference",
-								"typeArguments": [
-									{
-										"type": "indexedAccess",
-										"indexType": {
-											"type": "literal",
-											"value": "oriObjectType"
-										},
-										"objectType": {
-											"type": "reference",
-											"id": 112,
-											"name": "Map"
-										}
-									}
-								],
-								"name": "ConstructorType"
-							}
-						},
-						{
-							"id": 111,
-							"name": "parser",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {},
-							"sources": [
-								{
-									"fileName": "index.ts",
-									"line": 139,
-									"character": 109
-								}
-							],
-							"type": {
-								"type": "indexedAccess",
-								"indexType": {
-									"type": "literal",
-									"value": "parserType"
-								},
-								"objectType": {
-									"type": "reference",
-									"id": 112,
-									"name": "Map"
-								}
-							}
-						}
-					],
-					"groups": [
-						{
-							"title": "Properties",
-							"children": [
-								110,
-								111
-							]
-						}
-					],
-					"sources": [
-						{
-							"fileName": "index.ts",
-							"line": 139,
-							"character": 53
-						}
-					]
-				}
-			}
-		},
-		{
-			"id": 8,
-			"name": "ParserMap",
-			"kind": 4194304,
-			"kindString": "Type alias",
-			"flags": {},
-			"comment": {
-				"summary": [
-					{
-						"kind": "text",
-						"text": "create a parsermap type"
+						"text": "create a parser rule type"
 					}
 				],
 				"blockTags": [
@@ -3032,7 +2892,7 @@
 						"content": [
 							{
 								"kind": "code",
-								"text": "```ts\n// parse A to ATarget\r\ntype AParserMap = ParserMap<A, ATarget>;\n```"
+								"text": "```ts\n// parse A to ATarget\r\ntype AParserRule = ParserRule<A, ATarget>;\n```"
 							}
 						]
 					}
@@ -3042,12 +2902,13 @@
 				{
 					"fileName": "index.ts",
 					"line": 7,
-					"character": 12
+					"character": 12,
+					"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L7"
 				}
 			],
 			"typeParameters": [
 				{
-					"id": 14,
+					"id": 7,
 					"name": "OriObjectType",
 					"kind": 131072,
 					"kindString": "Type parameter",
@@ -3066,7 +2927,7 @@
 					}
 				},
 				{
-					"id": 15,
+					"id": 8,
 					"name": "TargetDataType",
 					"kind": 131072,
 					"kindString": "Type parameter",
@@ -3105,25 +2966,25 @@
 					}
 				},
 				{
-					"id": 16,
+					"id": 9,
 					"name": "ExDataType",
 					"kind": 131072,
 					"kindString": "Type parameter",
 					"flags": {},
 					"default": {
 						"type": "intrinsic",
-						"name": "unknown"
+						"name": "any"
 					}
 				},
 				{
-					"id": 17,
+					"id": 10,
 					"name": "ParserType",
 					"kind": 131072,
 					"kindString": "Type parameter",
 					"flags": {},
 					"type": {
 						"type": "reference",
-						"id": 48,
+						"id": 41,
 						"typeArguments": [
 							{
 								"type": "intrinsic",
@@ -3134,7 +2995,7 @@
 					},
 					"default": {
 						"type": "reference",
-						"id": 48,
+						"id": 41,
 						"typeArguments": [
 							{
 								"type": "intrinsic",
@@ -3148,14 +3009,14 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 9,
+					"id": 2,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
 					"flags": {},
 					"children": [
 						{
-							"id": 12,
+							"id": 5,
 							"name": "exDataType",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3166,17 +3027,18 @@
 								{
 									"fileName": "index.ts",
 									"line": 10,
-									"character": 4
+									"character": 4,
+									"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L10"
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 16,
+								"id": 9,
 								"name": "ExDataType"
 							}
 						},
 						{
-							"id": 10,
+							"id": 3,
 							"name": "oriObjectType",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3185,17 +3047,18 @@
 								{
 									"fileName": "index.ts",
 									"line": 8,
-									"character": 4
+									"character": 4,
+									"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L8"
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 14,
+								"id": 7,
 								"name": "OriObjectType"
 							}
 						},
 						{
-							"id": 13,
+							"id": 6,
 							"name": "parserType",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3204,7 +3067,8 @@
 								{
 									"fileName": "index.ts",
 									"line": 11,
-									"character": 4
+									"character": 4,
+									"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L11"
 								}
 							],
 							"type": {
@@ -3212,7 +3076,7 @@
 								"typeArguments": [
 									{
 										"type": "reference",
-										"id": 17,
+										"id": 10,
 										"name": "ParserType"
 									}
 								],
@@ -3220,7 +3084,7 @@
 							}
 						},
 						{
-							"id": 11,
+							"id": 4,
 							"name": "targetDataType",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3229,12 +3093,13 @@
 								{
 									"fileName": "index.ts",
 									"line": 9,
-									"character": 4
+									"character": 4,
+									"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L9"
 								}
 							],
 							"type": {
 								"type": "reference",
-								"id": 15,
+								"id": 8,
 								"name": "TargetDataType"
 							}
 						}
@@ -3243,10 +3108,10 @@
 						{
 							"title": "Properties",
 							"children": [
-								12,
-								10,
-								13,
-								11
+								5,
+								3,
+								6,
+								4
 							]
 						}
 					],
@@ -3254,15 +3119,16 @@
 						{
 							"fileName": "index.ts",
 							"line": 7,
-							"character": 213
+							"character": 210,
+							"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L7"
 						}
 					]
 				}
 			}
 		},
 		{
-			"id": 113,
-			"name": "ParserMapsBase",
+			"id": 103,
+			"name": "ParserRulesBase",
 			"kind": 4194304,
 			"kindString": "Type alias",
 			"flags": {},
@@ -3270,7 +3136,7 @@
 				"summary": [
 					{
 						"kind": "text",
-						"text": "create a parserMaps which contains many parserMap"
+						"text": "create a parserRules which contains many parserRule"
 					}
 				],
 				"blockTags": [
@@ -3279,7 +3145,7 @@
 						"content": [
 							{
 								"kind": "code",
-								"text": "```ts\n// create a parserMaps contains AParserMap,BParserMap and CParserMap\r\ntype ParserMaps = ParserMapsBase<[AParserMap, BParserMap, CParserMap]>;\n```"
+								"text": "```ts\n// create a parserRules contains AParserRule,BParserRule and CParserRule\r\ntype ParserRules = ParserRulesBase<[AParserRule, BParserRule, CParserRule]>;\n```"
 							}
 						]
 					}
@@ -3288,14 +3154,15 @@
 			"sources": [
 				{
 					"fileName": "index.ts",
-					"line": 149,
-					"character": 12
+					"line": 151,
+					"character": 12,
+					"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L151"
 				}
 			],
 			"typeParameters": [
 				{
-					"id": 114,
-					"name": "Maps",
+					"id": 104,
+					"name": "Rules",
 					"kind": 131072,
 					"kindString": "Type parameter",
 					"flags": {},
@@ -3303,20 +3170,20 @@
 						"type": "array",
 						"elementType": {
 							"type": "reference",
-							"id": 8,
-							"name": "ParserMap"
+							"id": 1,
+							"name": "ParserRule"
 						}
 					}
 				}
 			],
 			"type": {
 				"type": "reference",
-				"id": 114,
-				"name": "Maps"
+				"id": 104,
+				"name": "Rules"
 			}
 		},
 		{
-			"id": 35,
+			"id": 28,
 			"name": "DefaultGetter",
 			"kind": 64,
 			"kindString": "Function",
@@ -3325,12 +3192,13 @@
 				{
 					"fileName": "index.ts",
 					"line": 29,
-					"character": 13
+					"character": 13,
+					"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L29"
 				}
 			],
 			"signatures": [
 				{
-					"id": 36,
+					"id": 29,
 					"name": "DefaultGetter",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -3356,7 +3224,7 @@
 					},
 					"parameters": [
 						{
-							"id": 37,
+							"id": 30,
 							"name": "value",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -3375,7 +3243,7 @@
 							}
 						},
 						{
-							"id": 38,
+							"id": 31,
 							"name": "propertyName",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -3402,7 +3270,7 @@
 			]
 		},
 		{
-			"id": 39,
+			"id": 32,
 			"name": "DefaultSetter",
 			"kind": 64,
 			"kindString": "Function",
@@ -3411,12 +3279,13 @@
 				{
 					"fileName": "index.ts",
 					"line": 37,
-					"character": 13
+					"character": 13,
+					"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L37"
 				}
 			],
 			"signatures": [
 				{
-					"id": 40,
+					"id": 33,
 					"name": "DefaultSetter",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -3431,7 +3300,7 @@
 					},
 					"parameters": [
 						{
-							"id": 41,
+							"id": 34,
 							"name": "value",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -3450,7 +3319,7 @@
 							}
 						},
 						{
-							"id": 42,
+							"id": 35,
 							"name": "targetValue",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -3469,7 +3338,7 @@
 							}
 						},
 						{
-							"id": 43,
+							"id": 36,
 							"name": "propertyName",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -3490,7 +3359,7 @@
 							}
 						},
 						{
-							"id": 44,
+							"id": 37,
 							"name": "exData",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -3519,7 +3388,7 @@
 			]
 		},
 		{
-			"id": 45,
+			"id": 38,
 			"name": "EmptySetter",
 			"kind": 64,
 			"kindString": "Function",
@@ -3528,12 +3397,13 @@
 				{
 					"fileName": "index.ts",
 					"line": 42,
-					"character": 13
+					"character": 13,
+					"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L42"
 				}
 			],
 			"signatures": [
 				{
-					"id": 46,
+					"id": 39,
 					"name": "EmptySetter",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -3548,7 +3418,7 @@
 					},
 					"parameters": [
 						{
-							"id": 47,
+							"id": 40,
 							"name": "args",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -3578,201 +3448,36 @@
 					}
 				}
 			]
-		},
-		{
-			"id": 1,
-			"name": "addToParserHelper",
-			"kind": 64,
-			"kindString": "Function",
-			"flags": {},
-			"sources": [
-				{
-					"fileName": "index.ts",
-					"line": 167,
-					"character": 16
-				}
-			],
-			"signatures": [
-				{
-					"id": 2,
-					"name": "addToParserHelper",
-					"kind": 4096,
-					"kindString": "Call signature",
-					"flags": {},
-					"comment": {
-						"summary": [
-							{
-								"kind": "text",
-								"text": "add parser to parser helper so the helper can select the parser by input value type"
-							}
-						]
-					},
-					"typeParameter": [
-						{
-							"id": 3,
-							"name": "OriObjectType",
-							"kind": 131072,
-							"kindString": "Type parameter",
-							"flags": {}
-						}
-					],
-					"parameters": [
-						{
-							"id": 4,
-							"name": "oriObjectType",
-							"kind": 32768,
-							"kindString": "Parameter",
-							"flags": {},
-							"comment": {
-								"summary": [
-									{
-										"kind": "text",
-										"text": "original object type"
-									}
-								]
-							},
-							"type": {
-								"type": "reference",
-								"typeArguments": [
-									{
-										"type": "reference",
-										"id": 3,
-										"name": "OriObjectType"
-									}
-								],
-								"name": "ConstructorType"
-							}
-						}
-					],
-					"type": {
-						"type": "reflection",
-						"declaration": {
-							"id": 5,
-							"name": "__type",
-							"kind": 65536,
-							"kindString": "Type literal",
-							"flags": {},
-							"sources": [
-								{
-									"fileName": "index.ts",
-									"line": 169,
-									"character": 11
-								}
-							],
-							"signatures": [
-								{
-									"id": 6,
-									"name": "__type",
-									"kind": 4096,
-									"kindString": "Call signature",
-									"flags": {},
-									"parameters": [
-										{
-											"id": 7,
-											"name": "target",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {},
-											"type": {
-												"type": "reference",
-												"typeArguments": [
-													{
-														"type": "reference",
-														"id": 48,
-														"typeArguments": [
-															{
-																"type": "reference",
-																"id": 8,
-																"typeArguments": [
-																	{
-																		"type": "reference",
-																		"id": 3,
-																		"name": "OriObjectType"
-																	},
-																	{
-																		"type": "reference",
-																		"typeArguments": [
-																			{
-																				"type": "intrinsic",
-																				"name": "string"
-																			},
-																			{
-																				"type": "intrinsic",
-																				"name": "any"
-																			}
-																		],
-																		"name": "Record",
-																		"qualifiedName": "Record",
-																		"package": "typescript"
-																	},
-																	{
-																		"type": "intrinsic",
-																		"name": "unknown"
-																	},
-																	{
-																		"type": "reference",
-																		"id": 48,
-																		"typeArguments": [
-																			{
-																				"type": "intrinsic",
-																				"name": "any"
-																			}
-																		],
-																		"name": "DataParserBase"
-																	}
-																],
-																"name": "ParserMap"
-															}
-														],
-														"name": "DataParserBase"
-													}
-												],
-												"name": "ConstructorType"
-											}
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "void"
-									}
-								}
-							]
-						}
-					}
-				}
-			]
 		}
 	],
 	"groups": [
 		{
 			"title": "Classes",
 			"children": [
-				48,
-				120
+				41,
+				110
 			]
 		},
 		{
 			"title": "Interfaces",
 			"children": [
-				18
+				11
 			]
 		},
 		{
 			"title": "Type Aliases",
 			"children": [
-				115,
-				108,
-				8,
-				113
+				105,
+				1,
+				103
 			]
 		},
 		{
 			"title": "Functions",
 			"children": [
-				35,
-				39,
-				45,
-				1
+				28,
+				32,
+				38
 			]
 		}
 	],
@@ -3780,7 +3485,8 @@
 		{
 			"fileName": "index.ts",
 			"line": 7,
-			"character": 0
+			"character": 0,
+			"url": "https://github.com/TheFBplus/typed-data-parser/blob/51ed7c3/src/index.ts#L7"
 		}
 	]
 }

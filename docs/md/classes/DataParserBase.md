@@ -1,6 +1,6 @@
 [typed-data-parser](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md) / DataParserBase
 
-# Class: DataParserBase<parserMap\>
+# Class: DataParserBase<parserRule\>
 
 define a parser
 
@@ -8,20 +8,24 @@ define a parser
 
 ```ts
 // define a parser which parser A to ATarget
-class AParser extends DataParserBase<AParserMap> { }
+class AParser extends DataParserBase<AParserRule> { }
 ```
 
 ## Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `parserMap` | extends [`ParserMap`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md#parsermap) |
+| `parserRule` | extends [`ParserRule`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md#parserrule) |
 
 ## Table of contents
 
 ### Constructors
 
 - [constructor](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/classes/DataParserBase.md#constructor)
+
+### Properties
+
+- [oriObjectType](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/classes/DataParserBase.md#oriobjecttype)
 
 ### Accessors
 
@@ -39,13 +43,33 @@ class AParser extends DataParserBase<AParserMap> { }
 
 ### constructor
 
-• **new DataParserBase**<`parserMap`\>()
+• **new DataParserBase**<`parserRule`\>(`oriDataType`)
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `parserMap` | extends [`ParserMap`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md#parsermap)<`Object`, `Record`<`string`, `any`\>, `unknown`, [`DataParserBase`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/classes/DataParserBase.md)<`any`\>\> |
+| `parserRule` | extends [`ParserRule`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md#parserrule)<`Object`, `Record`<`string`, `any`\>, `any`, [`DataParserBase`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/classes/DataParserBase.md)<`any`\>\> |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `oriDataType` | `ConstructorType`<`parserRule`[``"oriObjectType"``]\> |
+
+#### Defined in
+
+index.ts:56
+
+## Properties
+
+### oriObjectType
+
+• `Readonly` **oriObjectType**: `ConstructorType`<`parserRule`[``"oriObjectType"``]\>
+
+#### Defined in
+
+index.ts:54
 
 ## Accessors
 
@@ -59,7 +83,7 @@ class AParser extends DataParserBase<AParserMap> { }
 
 #### Defined in
 
-index.ts:54
+index.ts:61
 
 ___
 
@@ -73,13 +97,13 @@ ___
 
 #### Defined in
 
-index.ts:65
+index.ts:72
 
 ## Methods
 
 ### get
 
-▸ **get**<`PropertyNames`\>(`value`, ...`propertyNames`): `PropertyNames` extends [] ? `parserMap`[``"targetDataType"``] : `Pick`<`parserMap`[``"targetDataType"``], `PropertyNames`[`number`]\>
+▸ **get**<`PropertyNames`\>(`value`, ...`propertyNames`): `PropertyNames` extends [] ? `parserRule`[``"targetDataType"``] : `Pick`<`parserRule`[``"targetDataType"``], `PropertyNames`[`number`]\>
 
 get property value
 
@@ -87,24 +111,24 @@ get property value
 
 | Name | Type |
 | :------ | :------ |
-| `PropertyNames` | extends `Extract`<keyof `parserMap`[``"targetDataType"``], `string`\>[] |
+| `PropertyNames` | extends `Extract`<keyof `parserRule`[``"targetDataType"``], `string`\>[] |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `value` | `parserMap`[``"oriObjectType"``] | original data |
+| `value` | `parserRule`[``"oriObjectType"``] | original data |
 | `...propertyNames` | `PropertyNames` | property names,can be null |
 
 #### Returns
 
-`PropertyNames` extends [] ? `parserMap`[``"targetDataType"``] : `Pick`<`parserMap`[``"targetDataType"``], `PropertyNames`[`number`]\>
+`PropertyNames` extends [] ? `parserRule`[``"targetDataType"``] : `Pick`<`parserRule`[``"targetDataType"``], `PropertyNames`[`number`]\>
 
 property value
 
 #### Defined in
 
-index.ts:81
+index.ts:88
 
 ___
 
@@ -130,7 +154,7 @@ ___
 
 #### Defined in
 
-index.ts:55
+index.ts:62
 
 ___
 
@@ -156,7 +180,7 @@ ___
 
 #### Defined in
 
-index.ts:66
+index.ts:73
 
 ___
 
@@ -170,11 +194,11 @@ set property value
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `value` | `parserMap`[``"oriObjectType"``] | original data |
-| `partialTargetData` | `Partial`<`parserMap`[``"targetDataType"``]\> | propertyName-propertyValue key pairs |
+| `value` | `parserRule`[``"oriObjectType"``] | original data |
+| `partialTargetData` | `Partial`<`parserRule`[``"targetDataType"``]\> | propertyName-propertyValue key pairs |
 | `extras?` | `Object` | extras data,which is helpful when we want to do something else after the property is been set |
 | `extras.callback?` | () => `void` | - |
-| `extras.exData?` | `parserMap`[``"exDataType"``] | - |
+| `extras.exData?` | `parserRule`[``"exDataType"``] | - |
 
 #### Returns
 
@@ -182,4 +206,4 @@ set property value
 
 #### Defined in
 
-index.ts:119
+index.ts:126

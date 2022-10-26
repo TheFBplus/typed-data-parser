@@ -14,7 +14,7 @@
     "strictNullChecks": false,
     "declarationDir": "bin/dts",
     "declaration": true,
-    "experimentalDecorators": true,
+    "esModuleInterop": true,
     "allowJs": true,
     "checkJs": false
   },

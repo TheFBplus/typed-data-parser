@@ -1,14 +1,14 @@
 [typed-data-parser](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md) / IDataParser
 
-# Interface: IDataParser<Map\>
+# Interface: IDataParser<Rule\>
 
-data parser interface
+data parser interface,implements this interface to ensure we have getters and setters been set properly
 
 ## Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `Map` | extends [`ParserMap`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md#parsermap) |
+| `Rule` | extends [`ParserRule`](https://github.com/TheFBplus/typed-data-parser/blob/master/docs/md/README.md#parserrule) |
 
 ## Table of contents
 

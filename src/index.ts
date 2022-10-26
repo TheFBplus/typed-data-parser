@@ -1,10 +1,10 @@
 /**
- * create a parsermap type
+ * create a parser rule type
  * @example
  * // parse A to ATarget
- * type AParserMap = ParserMap<A, ATarget>;
+ * type AParserRule = ParserRule<A, ATarget>;
  */
-export type ParserMap<OriObjectType extends Object = Object, TargetDataType extends Record<string, any> = Record<string, any>, ExDataType = unknown, ParserType extends DataParserBase<any> = DataParserBase<any>> = {
+export type ParserRule<OriObjectType extends Object = Object, TargetDataType extends Record<string, any> = Record<string, any>, ExDataType = any, ParserType extends DataParserBase<any> = DataParserBase<any>> = {
     oriObjectType: OriObjectType;
     targetDataType: TargetDataType;
     exDataType?: ExDataType;
@@ -12,12 +12,12 @@ export type ParserMap<OriObjectType extends Object = Object, TargetDataType exte
 };
 
 /**
- * data parser interface
+ * data parser interface,implements this interface to ensure we have getters and setters been set properly
  */
-export interface IDataParser<Map extends ParserMap>
+export interface IDataParser<Rule extends ParserRule>
 {
-    propertyGetters: { [P in keyof Map["targetDataType"]]: (value: Map["oriObjectType"], propertyName: string) => Map["targetDataType"][P] };
-    propertySetters: { [P in keyof Map["targetDataType"]]: (value: Map["oriObjectType"], targetValue: Map["targetDataType"][P], propertyName?: string, exData?: Map["exDataType"], callback?: () => void) => void };
+    propertyGetters: { [P in keyof Rule["targetDataType"]]: (value: Rule["oriObjectType"], propertyName: string) => Rule["targetDataType"][P] };
+    propertySetters: { [P in keyof Rule["targetDataType"]]: (value: Rule["oriObjectType"], targetValue: Rule["targetDataType"][P], propertyName?: string, exData?: Rule["exDataType"], callback?: () => void) => void };
 }
 
 /**
@@ -39,20 +39,27 @@ export const DefaultSetter = (value: object, targetValue: unknown, propertyName?
  * do nothing,which is helpful is we want this property to be readonly
  * @param args any arguments
  */
-export const EmptySetter = (...args: unknown[]) => { }; // 空属性设置器，即不进行任何操作
+export const EmptySetter = (...args: unknown[]) => { };
 
 /**
  * define a parser
  * @example
  * // define a parser which parser A to ATarget
- * class AParser extends DataParserBase<AParserMap> { }
+ * class AParser extends DataParserBase<AParserRule> { }
  */
-export abstract class DataParserBase<parserMap extends ParserMap>{
+export abstract class DataParserBase<parserRule extends ParserRule>{
     private static gettersCache: Map<DataParserBase<any>, any> = new Map<DataParserBase<any>, any>();
     private static settersCache: Map<DataParserBase<any>, any> = new Map<DataParserBase<any>, any>();
 
-    public abstract get propertyGetters(): IDataParser<parserMap>["propertyGetters"];
-    protected initGetters<T extends IDataParser<parserMap>["propertyGetters"]>(getterDescription: T): T
+    public readonly oriObjectType: ConstructorType<parserRule["oriObjectType"]>;
+
+    constructor(oriDataType: ConstructorType<parserRule["oriObjectType"]>)
+    {
+        this.oriObjectType = oriDataType;
+    }
+
+    public abstract get propertyGetters(): IDataParser<parserRule>["propertyGetters"];
+    protected initGetters<T extends IDataParser<parserRule>["propertyGetters"]>(getterDescription: T): T
     {
         //TODO:find more elegant way to solve base class's unwanted register
         const getters = DataParserBase.gettersCache.get(this);
@@ -62,8 +69,8 @@ export abstract class DataParserBase<parserMap extends ParserMap>{
         return DataParserBase.gettersCache.get(this);
     }
 
-    public abstract get propertySetters(): IDataParser<parserMap>["propertySetters"];
-    protected initSetters<T extends IDataParser<parserMap>["propertySetters"]>(setterDescription: T): T
+    public abstract get propertySetters(): IDataParser<parserRule>["propertySetters"];
+    protected initSetters<T extends IDataParser<parserRule>["propertySetters"]>(setterDescription: T): T
     {
         const setters = DataParserBase.settersCache.get(this);
         if (setters == undefined || Object.keys(setters).length < Object.keys(setterDescription).length) {
@@ -78,11 +85,11 @@ export abstract class DataParserBase<parserMap extends ParserMap>{
      * @param propertyNames property names,can be null
      * @returns property value
      */
-    public get<PropertyNames extends Extract<keyof parserMap["targetDataType"], string>[]>(value: parserMap["oriObjectType"], ...propertyNames: PropertyNames): PropertyNames extends [] ? parserMap["targetDataType"] : Pick<parserMap["targetDataType"], PropertyNames[number]>
+    public get<PropertyNames extends Extract<keyof parserRule["targetDataType"], string>[]>(value: parserRule["oriObjectType"], ...propertyNames: PropertyNames): PropertyNames extends [] ? parserRule["targetDataType"] : Pick<parserRule["targetDataType"], PropertyNames[number]>
     {
         // if propertyNames is not null,return the data matched propertyNames
         if (propertyNames && propertyNames.length > 0) {
-            const result: Pick<parserMap["targetDataType"], PropertyNames[number]> = Object.create(null);
+            const result: Pick<parserRule["targetDataType"], PropertyNames[number]> = Object.create(null);
             propertyNames.forEach(propertyName =>
             {
                 // get property getter by propertyName
@@ -92,11 +99,11 @@ export abstract class DataParserBase<parserMap extends ParserMap>{
                     result[propertyName] = propertyGetter.call(this, value, propertyName);
                 }
             });
-            return result as Pick<parserMap["targetDataType"], PropertyNames[number]> as any;
+            return result as Pick<parserRule["targetDataType"], PropertyNames[number]> as any;
         }
 
         // if propertyNames is null return all properties
-        const targetData: parserMap["targetDataType"] = Object.create(null);
+        const targetData: parserRule["targetDataType"] = Object.create(null);
         for (let propertyName in this.propertyGetters) {
             // get property getter by propertyName
             const propertyGetter = this.propertyGetters[propertyName];
@@ -107,7 +114,7 @@ export abstract class DataParserBase<parserMap extends ParserMap>{
 
         }
         //TODO:find more elegant way to return conditional type
-        return targetData as parserMap["targetDataType"] as any;
+        return targetData as parserRule["targetDataType"] as any;
     }
 
     /**
@@ -116,7 +123,7 @@ export abstract class DataParserBase<parserMap extends ParserMap>{
      * @param partialTargetData propertyName-propertyValue key pairs
      * @param [extras] extras data,which is helpful when we want to do something else after the property is been set
      */
-    public set(value: parserMap["oriObjectType"], partialTargetData: Partial<parserMap["targetDataType"]>, extras?: { exData?: parserMap["exDataType"], callback?: () => void }): void
+    public set(value: parserRule["oriObjectType"], partialTargetData: Partial<parserRule["targetDataType"]>, extras?: { exData?: parserRule["exDataType"], callback?: () => void }): void
     {
         // traverse the input data to set property
         for (let propertyName in partialTargetData) {
@@ -133,82 +140,52 @@ export abstract class DataParserBase<parserMap extends ParserMap>{
     }
 }
 
-/**
- * this type is used to registe parserHelper 
- */
-export type MapInstanceType<Map extends ParserMap> = { oriObjectType: ConstructorType<Map["oriObjectType"]>, parser: Map["parserType"] };
-
 type ConstructorType<T> = new (...args: any) => T;
 
 /**
- * create a parserMaps which contains many parserMap
+ * create a parserRules which contains many parserRule
  * @example
- * // create a parserMaps contains AParserMap,BParserMap and CParserMap
- * type ParserMaps = ParserMapsBase<[AParserMap, BParserMap, CParserMap]>;
+ * // create a parserRules contains AParserRule,BParserRule and CParserRule
+ * type ParserRules = ParserRulesBase<[AParserRule, BParserRule, CParserRule]>;
  */
-export type ParserMapsBase<Maps extends ParserMap[]> = Maps;
+export type ParserRulesBase<Rules extends ParserRule[]> = Rules;
 
 /**
  * get parserType by original objet type
  * @example
  * // get parser type
- * type parserType = GetParserByMaps<ParserMaps,A>; // which will be AParser
+ * type parserType = GetParserByRules<ParserRules,A>; // which will be AParser 
  */
-export type GetParserByMaps<Maps extends ParserMap[], OriObjectType> = Maps[{
-    [key in keyof Maps]: Maps[key] extends { oriObjectType: OriObjectType } ? key : never
+export type GetParserByRules<Rules extends ParserRule[], OriObjectType> = Rules[{
+    [key in keyof Rules]: Rules[key] extends { oriObjectType: OriObjectType } ? key : never
 }[number]];
-type TargetDataType<Maps extends ParserMap[], OriObjectType> = GetParserByMaps<Maps, OriObjectType>["targetDataType"];
-type ParserType<Maps extends ParserMap[], OriObjectType> = InstanceType<GetParserByMaps<Maps, OriObjectType>["parserType"]>;
+type TargetDataType<Rules extends ParserRule[], OriObjectType> = GetParserByRules<Rules, OriObjectType>["targetDataType"];
+type ParserType<Rules extends ParserRule[], OriObjectType> = InstanceType<GetParserByRules<Rules, OriObjectType>["parserType"]>;
 
-/**
- * add parser to parser helper so the helper can select the parser by input value type 
- * @param oriObjectType original object type
- */
-export function addToParserHelper<OriObjectType>(oriObjectType: ConstructorType<OriObjectType>)
-{
-    return function (target: ConstructorType<DataParserBase<ParserMap<OriObjectType>>>)
-    {
-        ParserHelperBase.registerMap({ oriObjectType: oriObjectType, parser: target });
-    }
-}
 
-export abstract class ParserHelperBase<Maps extends ParserMap[]>
+export abstract class ParserHelperBase<Rules extends ParserRule[]>
 {
     /**
-     * parser map that is registed to the helper
+     * parser rules that is registed to the helper
      */
-    protected static parserMaps: Map<Object, Set<ConstructorType<DataParserBase<any>>>> = new Map<Object, Set<ConstructorType<DataParserBase<any>>>>();
-    /**
-     * the parser created,use to cache
-     */
-    protected parserCreated: Map<ConstructorType<DataParserBase<any>>, DataParserBase<any>> = new Map<ConstructorType<DataParserBase<any>>, DataParserBase<any>>();
-
+    protected parserRules: Map<Object, Set<DataParserBase<any>>> = new Map<Object, Set<DataParserBase<any>>>();
 
     /**
      * Creates an instance of parser helper base.
-     * @param [maps] 
+     * @param [parsers] 
      */
-    constructor(maps?: MapInstanceType<Maps[number]>[])
+    constructor(parsers?: InstanceType<Rules[number]["parserType"]>[])
     {
-        maps?.forEach(mapInstance =>
+        parsers?.forEach(parser =>
         {
-            ParserHelperBase.registerMap(mapInstance);
+            const parsers = this.parserRules.get(parser.oriObjectType);
+            if (parsers == undefined) {
+                this.parserRules.set(parser.oriObjectType, new Set<DataParserBase<any>>().add(parser));
+            }
+            else {
+                parsers.add(parser);
+            }
         });
-    }
-
-    /**
-     * add parser map to helper to registe
-     * @param map parser map to add
-     */
-    public static registerMap(map: MapInstanceType<any>)
-    {
-        const parsers = this.parserMaps.get(map.oriObjectType);
-        if (parsers == undefined) {
-            this.parserMaps.set(map.oriObjectType, new Set<ConstructorType<DataParserBase<any>>>().add(map.parser));
-        }
-        else {
-            parsers.add(map.parser);
-        }
     }
 
     /**
@@ -217,40 +194,20 @@ export abstract class ParserHelperBase<Maps extends ParserMap[]>
      * @param [parserType] can set parserType manually
      * @returns matched parser 
      */
-    public getParser<T extends Maps[number]["oriObjectType"], U extends ParserType<Maps, T> = any>(value: T, parserType?: ConstructorType<U>): U extends undefined ? ParserType<Maps, T> : Extract<ParserType<Maps, T>, U> | undefined
+    public getParser<T extends Rules[number]["oriObjectType"], U extends ParserType<Rules, T> = any>(value: T, parserType?: ConstructorType<U>): U extends undefined ? ParserType<Rules, T> : Extract<ParserType<Rules, T>, U> | undefined
     {
-        function getParsers(value: any)
-        {
-            let result: any;
-            ParserHelperBase.parserMaps.forEach((parsers, obj: any) =>
-            {
-                if (value instanceof obj) {
-                    result = parsers;
-                }
-            });
-            return result;
-        }
-
-        const parsers = getParsers(value) as ConstructorType<DataParserBase<any>>[];
+        const parsers = this.parserRules.get(value.constructor);
         if (parsers != undefined) {
-            let p: ConstructorType<DataParserBase<any>> | undefined;
+            const parsersArry: DataParserBase<any>[] = [];
             parsers.forEach(parser =>
             {
-                if (parserType == undefined) {
-                    p = parser;
-                    return;
-                }
-
-                if (parser instanceof (parserType as any)) {
-                    p = parser;
-                    return;
-                }
+                parsersArry.push(parser);
             });
-            if (p != undefined) {
-                if (this.parserCreated.get(p) == undefined) {
-                    this.parserCreated.set(p, new p());
-                }
-                return this.parserCreated.get(p) as any;
+            if (parserType == undefined) {
+                return parsersArry[parsersArry.length - 1] as any;
+            }
+            else {
+                return parsersArry.find(parser => parser instanceof (parserType as any)) as any;
             }
         }
         return undefined as any;
@@ -262,27 +219,21 @@ export abstract class ParserHelperBase<Maps extends ParserMap[]>
      * @param propertyNames property names,can be null
      * @returns data matched propertyNames 
      */
-    public get<T extends Maps[number]["oriObjectType"], U extends Extract<(keyof TargetDataType<Maps, T> | undefined), string>[]>(value: T, ...propertyNames: U): U extends [] ? TargetDataType<Maps, T> : Pick<TargetDataType<Maps, T>, U[number]>
+    public get<T extends Rules[number]["oriObjectType"], U extends Extract<(keyof TargetDataType<Rules, T> | undefined), string>[]>(value: T, ...propertyNames: U): U extends [] ? TargetDataType<Rules, T> : Pick<TargetDataType<Rules, T>, U[number]>
     {
         const parser = this.getParser(value) as DataParserBase<any>;
-        return parser.get(value, ...propertyNames);
+        return parser?.get(value, ...propertyNames);
     }
 
-    /**
-     * 通过对应转换器设置数据
-     * @param value 源数据
-     * @param partialTargetData 要设置的数据
-     * @param exData 额外数据
-     */
     /**
      * set data by parser
      * @param value input value
      * @param partialTargetData propertyName-propertyValue key pairs
      * @param [extras] extras data,which is helpful when we want to do something else after the property is been set
      */
-    public set<T extends Maps[number]["oriObjectType"]>(value: T, partialTargetData: Partial<TargetDataType<Maps, T>>, extras?: { exData?: any, callback?: () => void }): void
+    public set<T extends Rules[number]["oriObjectType"]>(value: T, partialTargetData: Partial<TargetDataType<Rules, T>>, extras?: { exData?: any, callback?: () => void }): void
     {
         const parser = this.getParser(value) as DataParserBase<any>;
-        return parser.set(value, partialTargetData, extras);
+        return parser?.set(value, partialTargetData, extras);
     }
 }

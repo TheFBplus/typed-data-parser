@@ -1,17 +1,10 @@
 import { describe, expect, test } from "@jest/globals";
 
 import {
-    addToParserHelper, DataParserBase, DefaultGetter, DefaultSetter, IDataParser, ParserHelperBase,
-    ParserMap, ParserMapsBase
+    DataParserBase, DefaultGetter, DefaultSetter, IDataParser, ParserHelperBase, ParserRule,
+    ParserRulesBase
 } from "../src/index";
 
-describe('get sum', () =>
-{
-    test('sum of 1 and 1 is 2', () =>
-    {
-        expect(1 + 1).toBe(2);
-    });
-});
 // original data type
 class A
 {
@@ -26,11 +19,10 @@ interface ATarget
 {
     id: number;
 }
-// create parser map
-type AParserMap = ParserMap<A, ATarget, any, AParser>;
-// set parser map
-@addToParserHelper(A)
-class AParser extends DataParserBase<AParserMap>{
+// create parser rule
+type AParserRule = ParserRule<A, ATarget, any, AParser>;
+// set parser rule
+class AParser extends DataParserBase<AParserRule>{
     public override get propertyGetters()
     {
         return this.initGetters({
@@ -60,11 +52,10 @@ interface BTarget
 {
     name: string;
 }
-// create parser map
-type BParserMap = ParserMap<B, BTarget, any, BParser>;
-// set parser map
-@addToParserHelper(B)
-class BParser extends DataParserBase<BParserMap>{
+// create parser rule
+type BParserRule = ParserRule<B, BTarget, any, BParser>;
+// set parser rule
+class BParser extends DataParserBase<BParserRule>{
     public override get propertyGetters()
     {
         return this.initGetters({
@@ -95,11 +86,10 @@ interface CTarget extends ATarget
 {
     name: string;
 }
-// create parser map
-type CParserMap = ParserMap<C, CTarget, any, CParser>;
-// set parser map
-@addToParserHelper(C)
-class CParser extends AParser implements IDataParser<CParserMap>{
+// create parser rule
+type CParserRule = ParserRule<C, CTarget, any, CParser>;
+// set parser rule
+class CParser extends AParser implements IDataParser<CParserRule>{
     public override get propertyGetters()
     {
         return this.initGetters({
@@ -117,16 +107,19 @@ class CParser extends AParser implements IDataParser<CParserMap>{
     }
 }
 
-// create parser maps
-type ParserMaps = ParserMapsBase<[AParserMap, BParserMap, CParserMap]>
-class ParserHelper extends ParserHelperBase<ParserMaps>{ };
+// create parser rules
+type ParserRules = ParserRulesBase<[AParserRule, BParserRule, CParserRule]>
+class ParserHelper extends ParserHelperBase<ParserRules>{ };
 
 /* ------------------------------------------------------ 测试用例 ----------------------------------------------------- */
 
 const a = new A(1);
 const b = new B("Tom");
 const c = new C(1, "Tom");
-const parserHelper = new ParserHelper();
+const aParser = new AParser(A);
+const bParser = new BParser(B);
+const cParser = new CParser(C);
+const parserHelper = new ParserHelper([aParser, bParser, cParser]);
 
 describe('get data of a', () =>
 {

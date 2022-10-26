@@ -20,13 +20,13 @@ or
 npm run init
 ```
 
-test project
+test
 
 ```bash
 npm run test
 ```
 
-build project
+build
 
 ```bash
 npm run build
